@@ -1,0 +1,12 @@
+package day0104;
+
+public class DataTtpe_07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        byte a = (byte)128;
+        
+        System.out.println(a);
+	}
+
+}

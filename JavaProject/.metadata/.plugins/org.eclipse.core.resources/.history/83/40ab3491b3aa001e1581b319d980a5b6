@@ -1,0 +1,12 @@
+package day0104;
+
+public class Book69_05 {
+
+	public static void main(String[] args) {
+		// 교재 69페이지 printExample 문제
+
+   int value 123;
+   System.out.println("상품의 가격 :%d\n",value);
+	}
+
+}
