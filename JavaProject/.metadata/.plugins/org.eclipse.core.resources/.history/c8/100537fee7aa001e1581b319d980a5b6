@@ -1,0 +1,30 @@
+package day0104;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		String stuName;
+		int kor,eng,mat;
+		int tot;
+		double avg;
+		
+		System.out.println("학생명");
+		stuName = sc.nextLine();
+		System.out.println("국 영 수 점수를 입력하시오");
+		kor = sc.nextInt();
+		mat = sc.nextInt();
+		eng = sc.nextInt();
+
+		tot = kor + mat + eng;
+		avg = tot/3.0;
+		
+		
+
+	}
+
+}

@@ -20,10 +20,12 @@ public class DataType_09 {
 		System.out.println(avg2);
 		
 		//printf를 이용해서
-		System.out.printf("java-%d,jsp=%d,spring=%d\n",java,jsp,spring);
+		System.out.printf("java=%d,jsp=%d,spring=%d\n",java,jsp,spring);
 		System.out.println("총점="+tot);
 		
+		
 		System.out.printf("평균=%.2f\n",avg1);
+		
 		
 
 	}

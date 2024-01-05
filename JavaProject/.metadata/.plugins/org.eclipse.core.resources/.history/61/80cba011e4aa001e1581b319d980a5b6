@@ -1,0 +1,20 @@
+package day0104;
+
+import java.util.Calendar;
+
+public class Test {
+
+	public static void main(String[] args) {
+	
+    Calendar cal = Calendar.getInstance();
+    
+    System.out.println("지금은" + cal.get(cal.YEAR));
+    System.out.println("지금은" + (cal.get(cal.MONTH)+1));
+    System.out.println("지금은" + cal.get(cal.DATE));
+    System.out.println("지금은" + cal.get(cal.DAY_OF_MONTH));
+    System.out.println("지금은" + cal.get(cal.HOUR_OF_DAY));
+		
+		
+	}
+
+}
