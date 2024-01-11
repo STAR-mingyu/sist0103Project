@@ -1,0 +1,36 @@
+package day0104;
+
+public class OperTest_04 {
+
+	public static void main(String[] args) {
+		// 두수를 입력해서 산술연산자를 이용해서 출력해봅시다(+,-,*,/,%)
+		/*
+		 * 두수 입력해주세요
+		 * 6
+		 * 2
+		 * 
+		 * [산술연산자결과]
+		 * 더하기 : 8
+		 * 뻬기 : 4
+		 * 곱하기
+		 * 나누기
+		 * 나머지값
+		 */
+
+		int a,b;
+		a = 6;
+		b = 2;
+		
+		int result1 = a + b;
+		int result2 = a - b;
+		int result3 = a * b;
+		int result4 = a / b;
+		int result5 = a % b;
+		System.out.printf("더하기 : %d",result1);
+		System.out.printf("빼기 : %d",result2);
+		System.out.printf("곱하기 : %d",result3);
+		System.out.printf("나누기 : %d",result4);
+		System.out.printf("나머지값 : %d",result5);
+	}
+
+}

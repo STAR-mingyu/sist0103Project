@@ -1,0 +1,18 @@
+package day0110;
+
+public class ArrChangeDatas_04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [] arr = {4,5,7,234,645,234};
+		
+		System.out.println("**원데이터**");
+		
+		for(int i =0;i<arr.length;i++) {
+			System.out.print(arr[i] + "  ");
+		}
+		System.out.println();
+
+	}
+
+}

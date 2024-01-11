@@ -1,0 +1,17 @@
+package day0111;
+
+class MyTest {
+	private String name;
+	private String addr;
+	private int age;
+	
+}
+
+public class ObTest_07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

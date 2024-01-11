@@ -1,0 +1,46 @@
+package day0105;
+
+import java.util.Scanner;
+
+public class QuizOper_14 {
+
+	public static void main(String[] args) {
+		/*
+		 * (점수에 대한 조건은 90점이상:매우잘함 80점 이상 : 잘함 70점 이상 : 좀더노력할것 70점미안 : 꽝)
+		 * 이름을 입력해주세요
+		 * 김민아
+		 * 자바시험점수를 입력해주세요
+		 * 88
+		 * 
+		 * 
+		 * ==================
+		 * 김민아님의 시험결과는 잘함 입니다
+		 * 
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int result;
+		int a = 90;
+		String name;
+	    System.out.println("이름을 입력해주세요");
+	    name = sc.nextLine();
+	    System.out.println("자바시험점수를 입력해주세요");
+	    result = sc.nextInt();
+	    
+	    if (a >= 90) {
+	    	System.out.printf("%s님의 시험결과는 매우잘함입니다",name);
+	    } else if (a >= 80) {
+	    	System.out.printf("%s님의 시험결과는 잘함입니다",name);
+	    } else if (a >= 70) {
+	    	System.out.printf("%s님의 시험결과는 좀더노력할것입니다",name);
+	    } else {
+	    	System.out.println("꽝");
+	    }
+	    
+		 
+		
+
+	}
+
+}

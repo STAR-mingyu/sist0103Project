@@ -1,0 +1,23 @@
+package day0108;
+
+public class For_09 {
+
+	public static void main(String[] args) {
+		// 가로로 1~10까지 출력
+		for (int a = 1; a <= 10; a++) {
+			System.out.print(a + "  ");
+		}
+		System.out.println();
+		//10~1까지 출력
+		for (int b = 10; b >= 1; b--) {
+			System.out.print(b + "  ");
+		}
+		System.out.println();
+		//5씩 증가
+		for(int i = 0; i <= 50; i+=5) {
+			System.out.print(i + " ");
+		}
+
+	}
+
+}

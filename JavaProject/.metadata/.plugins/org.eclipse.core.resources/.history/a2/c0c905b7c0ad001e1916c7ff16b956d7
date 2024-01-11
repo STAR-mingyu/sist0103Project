@@ -1,0 +1,45 @@
+package day0108;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class OperReview_02 {
+
+	public static void main(String[] args) {
+		// 띠 : 로직에서 사용하는 순서는 원숭이
+		// 원숭이 닭 쥐 소 호랑이 토끼 용 뱀 말 양 개 돼지
+
+		Scanner sc = new Scanner(System.in);
+		Calendar cal = Calendar.getInstance();
+
+		int mybirthYear, age;
+		String name, ddi;
+
+		System.out.println("이름입력");
+		name = sc.nextLine();
+		System.out.println("태어난 연도 입력");
+		mybirthYear = sc.nextInt();
+
+		age = cal.get(cal.YEAR) - mybirthYear;
+
+		ddi = mybirthYear % 12 == 0 ? "원숭이"
+				: mybirthYear
+						% 12 == 1
+								? "닭"
+								: mybirthYear % 12 == 2 ? "쥐"
+										: mybirthYear % 12 == 3 ? "소"
+												: mybirthYear % 12 == 4 ? "호랑이"
+														: mybirthYear % 12 == 5 ? "토끼"
+																: mybirthYear % 12 == 6 ? "용"
+																		: mybirthYear % 12 == 7 ? "뱀"
+																				: mybirthYear % 12 == 8 ? "말"
+																						: mybirthYear % 12 == 9 ? "양"
+																								: mybirthYear % 12 == 10
+																										? "개"
+																										: "돼지";
+		System.out.println("이름 : " + name);
+		System.out.println("현대나이 : " + age + "세");
+		System.out.println("띠 : " + ddi + "띠");
+	}
+
+}

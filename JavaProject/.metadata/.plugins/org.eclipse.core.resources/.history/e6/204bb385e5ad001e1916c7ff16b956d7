@@ -1,0 +1,22 @@
+package day0108;
+
+public class QuizFor_12 {
+
+	public static void main(String[] args) {
+
+		System.out.println("1. 1 2 4 5 7 8 10 (continue활용할것!!)");
+		int a = 1;
+		for (; a <= 10; a++) {
+			if (a == 3) {
+				continue;
+			} else if (a == 9) {
+				continue;
+			}
+			System.out.print(a + "  ");
+			
+		}
+		
+		
+	}
+
+}

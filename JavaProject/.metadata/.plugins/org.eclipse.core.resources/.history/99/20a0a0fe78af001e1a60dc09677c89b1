@@ -1,0 +1,26 @@
+package day0110;
+
+class Numb {
+	int num; // 0
+
+	// 디폴트 생성자
+	public Numb() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// 인자있는 생성자
+	public Numb(int num) {
+		this.num = num;
+	}
+}
+
+public class ConstNum_11 {
+
+///////////////////////////////////
+
+	public static void main(String[] args) {
+		Numb ni = new Numb();
+
+	}
+
+}

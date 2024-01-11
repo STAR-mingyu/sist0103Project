@@ -1,0 +1,26 @@
+package day0105;
+
+import java.util.Scanner;
+
+public class QuizOper_07 {
+
+	public static void main(String[] args) {
+		// 여러분이 받은 알바비를 입력할후 만원,천원,백원,십원,일원의 갯수를 출력하시오
+		/*
+		 * 알바비는? 568712
+		 * 
+		 * 만원 : 56
+		 * 천원 : 8
+		 * 백원 : 7
+		 * 십원 : 1
+		 * 일원 : 2
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("알바비는?");
+		int totalPrice = sc.nextInt();
+		int price1,price2,price3,price4,price5;
+
+	}
+
+}

@@ -10,7 +10,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="setPrice"/>
 		<list key="findhistory">
+			<item value="setPrice"/>
+			<item value="getName"/>
+			<item value="setName"/>
+			<item value="continue"/>
+			<item value="count"/>
 		</list>
 		<list key="replacehistory">
 		</list>

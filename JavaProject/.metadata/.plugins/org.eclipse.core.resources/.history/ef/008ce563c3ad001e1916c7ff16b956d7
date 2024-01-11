@@ -1,0 +1,10 @@
+package day0108;
+
+public class YoonYear_03 {
+
+	public static void main(String[] args) {
+		// 연도가 4로 나누어 떨어지면 윤년이다. ==> 년도를 4로 나누어 나머지가 0
+
+	}
+
+}
