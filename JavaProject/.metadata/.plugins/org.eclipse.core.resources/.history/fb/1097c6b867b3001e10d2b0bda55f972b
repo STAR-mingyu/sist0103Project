@@ -1,0 +1,18 @@
+package day0115;
+
+public class Shop {
+	private String sangName;
+	private int su, dan;
+
+	public Shop() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Shop(String sangName,int su,int dan) {
+		this.sangName = sangName;
+		this.su = su;
+		this.dan = dan;
+	}
+	
+	
+}

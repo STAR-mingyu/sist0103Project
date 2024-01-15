@@ -7,6 +7,16 @@ class Emp {
 	private int gPay;
 	private int fSu;
 	private int tSu;
+	
+	//명시적생성자
+	
+	public Emp(String name,int pay,int fs,int ts) {
+		this.sName = name;
+		this.gPay = pay;
+		this.fSu = fs;
+		this.tSu = ts;
+		
+	}
 
 	public String getsName() {
 		return sName;
@@ -110,7 +120,7 @@ public class SawonInstanceScanner_14 {
 		
 		//인원수만큼 데이타 입력
 		for(int i = 0;i<inwon;i++) {
-			emp[i]= new Emp();
+		//	emp[i]= new Emp();
 			
 			System.out.println("이름");
 			String name = sc.nextLine();
@@ -121,12 +131,14 @@ public class SawonInstanceScanner_14 {
 			System.out.println("초과근무시간");
 			int ts = Integer.parseInt(sc.nextLine());
 			
+			emp[i] = new Emp(name,pay,fs,ts);
+			
 			//setter로 emp클래스에 데이타 넣기
-			emp[i].setsName(name);
-			emp[i].setgPay(pay);
-			emp[i].setfSu(fs);
-			emp[i].settSu(ts);
-			System.out.println();
+//			emp[i].setsName(name);
+//			emp[i].setgPay(pay);
+//			emp[i].setfSu(fs);
+//			emp[i].settSu(ts);
+//			System.out.println();
 			
 		}
 		

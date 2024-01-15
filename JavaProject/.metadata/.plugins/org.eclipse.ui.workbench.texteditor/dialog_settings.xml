@@ -10,8 +10,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="setPrice"/>
+		<item key="selection" value="saddr"/>
 		<list key="findhistory">
+			<item value="sAddr"/>
+			<item value="getTimeSudang"/>
 			<item value="setPrice"/>
 			<item value="getName"/>
 			<item value="setName"/>

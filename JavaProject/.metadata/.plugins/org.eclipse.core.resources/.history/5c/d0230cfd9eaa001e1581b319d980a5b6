@@ -1,7 +1,0 @@
-package day0104;
-
-public class DataType_06 {
-	//기본 자료형 8개
-	boolean flag = false;
-
-}

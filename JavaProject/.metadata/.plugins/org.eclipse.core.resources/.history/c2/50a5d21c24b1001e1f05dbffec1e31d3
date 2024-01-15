@@ -1,0 +1,62 @@
+package day0112;
+
+class Quiz {
+	private String name;
+	private int java;
+	private int oracle;
+	private int html;
+	private int tot;
+	private int avg;
+	private int eval;
+
+	static final String SCHOLLTITLE = "쌍용고육센터";
+
+	public Quiz() {
+
+	}
+
+	public Quiz(String name, int java, int oracle, int html, int tot, int avg, String eval) {
+		this.name = name;
+		this.java = java;
+		this.oracle = oracle;
+		this.html = html;
+		this.tot = tot;
+		this.avg = avg;
+		this.eval = eval;
+	}
+
+	public void schoolName() {
+		System.out.println("학교명 : " + SCHOLLTITLE);
+	}
+
+	public void getTotal() {
+		tot = this.java + this.oracle + this.html;
+		System.out.println(tot);
+	}
+
+	public void getAverage() {
+		avg = tot / 3;
+
+		System.out.println(avg);
+	}
+
+	public void getPyungga() {
+
+		if (avg >= 90) {
+			System.out.println("장학생");
+		} else if (avg >= 80) {
+			System.out.println("합격");
+		} else {
+			System.out.println("불합격");
+		}
+
+	}
+}
+
+public class QuizMain {
+
+	public static void main(String[] args) {
+
+	}
+
+}

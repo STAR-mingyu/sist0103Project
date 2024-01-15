@@ -1,0 +1,67 @@
+package day0115;
+
+abstract class Game {
+	abstract public void play();
+
+	abstract public void stop();
+}
+
+/////////////////////////
+class Kim extends Game {
+
+	@Override
+	public void play() {
+		System.out.println("게임시작");
+
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("게임중단");
+
+	}
+
+}
+
+/////////////////////////
+class Lee extends Game {
+
+	@Override
+	public void play() {
+		System.out.println("게임시작");
+
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("게임중단");
+
+	}
+
+}
+
+/////////////////////////
+class choi extends Game {
+
+	@Override
+	public void play() {
+		System.out.println("게임시작");
+
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("게임중단");
+
+	}
+
+}
+
+public class AbstractReview_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
