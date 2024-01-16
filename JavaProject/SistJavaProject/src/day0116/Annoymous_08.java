@@ -1,0 +1,40 @@
+package day0116;
+
+abstract class AbEx {
+
+	abstract public void dataAdd();
+
+	abstract public void dataList();
+}
+////////////////////////////////////
+
+public class Annoymous_08 {
+
+	AbEx ab1 = new AbEx() {
+
+		@Override
+		public void dataList() {
+			// TODO Auto-generated method stub
+			System.out.println("데이타를 출력합니다");
+
+		}
+
+		@Override
+		public void dataAdd() {
+			// TODO Auto-generated method stub
+			System.out.println("데이타를 추가합니다");
+
+		}
+	};
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Annoymous_08 anooy = new Annoymous_08();
+		anooy.ab1.dataAdd();
+		anooy.ab1.dataList();
+		
+		
+	}
+
+}

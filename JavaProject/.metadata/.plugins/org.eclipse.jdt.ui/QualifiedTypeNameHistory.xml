@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="day0110.StaticInstance_09"/>
-    <fullyQualifiedTypeName name="day0110.Student"/>
-    <fullyQualifiedTypeName name="day0110.ConstNum_11.Numb"/>
-    <fullyQualifiedTypeName name="day0110.Numb"/>
-    <fullyQualifiedTypeName name="day0110.Info"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="day0110.Mart"/>
-    <fullyQualifiedTypeName name="day0110.MyDate"/>
-    <fullyQualifiedTypeName name="day0110.Korean"/>
-    <fullyQualifiedTypeName name="day0111.Person"/>
-    <fullyQualifiedTypeName name="day0111.Apple"/>
-    <fullyQualifiedTypeName name="day0111.Orange"/>
-    <fullyQualifiedTypeName name="day0111.Test"/>
-    <fullyQualifiedTypeName name="day0111.MyCar"/>
-    <fullyQualifiedTypeName name="day0111.Member"/>
-    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
-    <fullyQualifiedTypeName name="day0111.Artist"/>
-    <fullyQualifiedTypeName name="day0111.Manggo"/>
     <fullyQualifiedTypeName name="day0111.Strudent1"/>
     <fullyQualifiedTypeName name="day0111.MyCarl"/>
     <fullyQualifiedTypeName name="day0111.Score"/>
@@ -46,7 +28,6 @@
     <fullyQualifiedTypeName name="day0115.Board_09"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
@@ -54,10 +35,29 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="day0115.Exception_12"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="day0116.OuterObj.InnerObj"/>
+    <fullyQualifiedTypeName name="day0116.Outer.Inner1"/>
+    <fullyQualifiedTypeName name="day0116.Outer.Inner2"/>
+    <fullyQualifiedTypeName name="day0116.AbstEx"/>
+    <fullyQualifiedTypeName name="day0116.Outer"/>
+    <fullyQualifiedTypeName name="day0116.AbEx"/>
+    <fullyQualifiedTypeName name="day0116.AbstObj"/>
+    <fullyQualifiedTypeName name="day0116.SubAbst"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="day0116.SawonOuter.InputInner"/>
+    <fullyQualifiedTypeName name="java.io.IOError"/>
+    <fullyQualifiedTypeName name="day0115.IoExcep_16"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.nio.Buffer"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
