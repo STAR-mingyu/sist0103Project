@@ -1,0 +1,41 @@
+package day0112;
+class Food_test {
+	private String foodName;
+	private int fPrice;
+	static int no;
+	
+	public Food_test(String name,int price) {
+		// TODO Auto-generated constructor stub
+		foodName = name;
+		fPrice = price;
+	}
+	
+	public void foodOut1() {
+		no++;
+		System.out.println(no);
+		System.out.println(foodName);
+		System.out.println(fPrice);
+	}
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Food_test [] food = new Food_test[3];
+		food[0] = new Food_test("피자",12000);
+		food[1] = new Food_test("스파게티",15000);
+		food[2] = new Food_test("샐러드",12000);
+		
+		for(int i =0;i<food.length;i++) {
+			food[i].foodOut1();
+		}
+		
+		for(Food_test f : food) {
+			f.foodOut1();
+		}
+
+	}
+
+}

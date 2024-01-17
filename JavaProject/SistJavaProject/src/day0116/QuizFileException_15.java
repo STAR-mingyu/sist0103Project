@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 public class QuizFileException_15 {
 
-	private int no, price = 0;
 
 	public static void FileRead() {
 		String fname = "C:\\sist0103\\file\\fruitshop.txt";
@@ -34,14 +33,21 @@ public class QuizFileException_15 {
 				}
 				cnt++;
 
-				StringTokenizer st = new StringTokenizer(s, ",");
-
-				String a = (st.nextToken());
-				String b = (st.nextToken());
-				String c = (st.nextToken());
-				
-				int tot = Integer.parseInt(b) * Integer.parseInt(c);
+				//분리방법1
+//				StringTokenizer st = new StringTokenizer(s, ",");
+				//배열의 갯수만큼 반복해서 출력
+//				String a = (st.nextToken());
+//				String b = (st.nextToken());
+//				String c = (st.nextToken());
+//				int tot = Integer.parseInt(b) * Integer.parseInt(c);
 	
+				//분리방법2
+				String [] data = s.split(",");
+				String a = data[0];
+				int b = Integer.parseInt(data[1].trim());
+				int c = Integer.parseInt(data[2].trim());
+				int tot = b * c;
+				//출력
 				System.out.println(cnt + "\t" + a + "\t" + b + "\t" + c + "\t" + tot);
 			}
 		} catch (FileNotFoundException e) {
@@ -62,9 +68,6 @@ public class QuizFileException_15 {
 
 	}
 
-	public void write() {
-
-	}
 
 	public static void main(String[] args) {
 
