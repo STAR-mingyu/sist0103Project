@@ -1,0 +1,54 @@
+package day0118;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class SwingEvent_07 extends JFrame implements ActionListener {
+
+	Container cp;
+	JButton btn1, btn2;
+
+	public SwingEvent_07(String title) {
+		// TODO Auto-generated constructor stub
+		super(title);
+
+		cp = this.getContentPane();
+		this.setBounds(300, 100, 300, 300);
+		cp.setBackground(new Color(255, 255, 200));
+		initDesign();
+		this.setVisible(true);
+	}
+
+	public void initDesign() {
+
+		//FLOW레이아웃으로 버튼2개생성
+		this.setLayout(new FlowLayout());
+		btn1 = new JButton("1번");
+		btn2 = new JButton("2번");
+		btn1.setBackground(Color.GRAY);
+		btn2.setBackground(Color.GREEN);
+		
+		this.add(btn1);
+		this.add(btn2
+				);
+		//버튼색상 그레이로 변경,버튼색상 그린으로 변경
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new SwingEvent_07("버튼 이벤트_07");
+	}
+
+}

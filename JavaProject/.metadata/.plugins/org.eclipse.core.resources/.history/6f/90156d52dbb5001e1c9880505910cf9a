@@ -1,0 +1,28 @@
+package day0118;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Label;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Homework_11 extends JFrame {
+
+	public Homework_11() {
+		// TODO Auto-generated constructor stub
+		super("배열");
+	}
+
+	Container cp;
+//	JButton[] btn = new JButton[5];
+	JButton btn1, btn2, btn3, btn4, btn5;
+	Color[] color = { Color.red, Color.blue, Color.black, Color.green, Color.orange };
+
+	public static void main(String[] args) {
+
+		new Homework_11();
+	}
+
+}
