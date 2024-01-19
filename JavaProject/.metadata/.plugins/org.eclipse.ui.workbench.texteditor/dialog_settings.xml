@@ -10,8 +10,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="MyshopList_07 "/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="horiz"/>
 			<item value="MyShopList_07 "/>
 			<item value="C:\sist0103\file"/>
 			<item value="sAddr"/>

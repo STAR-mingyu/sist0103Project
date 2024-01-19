@@ -44,8 +44,8 @@ public class Homework_11 extends JFrame implements ActionListener {
 			btn[i].addActionListener(this);
 		}
 		
-		mainlabel = new JLabel("안녕하세요",Label.CENTER);
-		mainlabel.setBounds(100,100,100,100);
+		mainlabel = new JLabel("안녕하세요");
+//		mainlabel.setBounds();
 		this.add(mainlabel);
 	}
 
