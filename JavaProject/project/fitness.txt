@@ -1,0 +1,25 @@
+화이트 피트니스 센터
+
+No 회원명 성별 나이 전화번호 프로그램 가입 날짜
+
+
+프로그램
+PT
+PILATES
+GOLF
+GROUP EXERCISE
+
+
+
+계정
+아이디 : fitness
+비밀번호 : a1234
+
+테이블
+create table fitness(no number(5) primary key,
+name varchar2(30),gender varchar2(30),age number(5),tel number(5),program varchar2(30),joinDate date);
+
+시퀀스
+create sequence seq_fitness;
+
+

@@ -10,8 +10,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="num"/>
+		<item key="selection" value="lblPhoto"/>
 		<list key="findhistory">
+			<item value="lblPhoto"/>
+			<item value="num"/>
+			<item value="addForm"/>
+			<item value="btnAdd"/>
 			<item value="NUM"/>
 			<item value="lblOut"/>
 			<item value="boldChek"/>
@@ -23,8 +27,6 @@
 			<item value="setPrice"/>
 			<item value="getName"/>
 			<item value="setName"/>
-			<item value="continue"/>
-			<item value="count"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
