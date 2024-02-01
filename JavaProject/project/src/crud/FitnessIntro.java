@@ -7,18 +7,13 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
 
 public class FitnessIntro extends JFrame implements ActionListener {
+
 	Container container;
-	JLabel introLabel;
 	JButton introBtn;
 
 	private Image introBg = new ImageIcon(FitnessIntro.class.getResource("../img/fitness_intro.jpg")).getImage();// 배경이미지
@@ -37,29 +32,33 @@ public class FitnessIntro extends JFrame implements ActionListener {
 
 	// 디자인
 	public void design() {
-//		setLocationRelativeTo(null);
-//		introLabel.setSize(900, 600);
-
-//		introLabel = new JLabel("화이트 피트니스 센터");
-//		introLabel.setBorder(new LineBorder(Color.pink));
-//		introLabel.setBounds(20, 120, 300, 30);
-//		this.add(introLabel);
 
 		this.setLayout(null);
 		introBtn = new JButton("회원 관리 접속");
-		introBtn.setBounds(370, 300, 160, 60);
-		introBtn.setBackground(new Color(206, 208, 216));
-		introBtn.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		introBtn.setBounds(350, 240, 200, 60);
+		introBtn.setBackground(Color.white);
+		introBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		introBtn.addActionListener(this);
+		introBtn.setForeground(Color.black); // 버튼 텍스트의 색상
+		introBtn.setFocusPainted(false);
+//		introBtn.setBorderPainted(false); //버튼 라인 없애기
+
 		this.add(introBtn);
 
 	}
-
 
 	// 액션
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
+		Object ob = e.getSource();
+
+		if (ob == introBtn) {
+			this.setVisible(false);
+			FitnessMain main = new FitnessMain("화이트 피트니스 센터");
+
+		}
 	}
 
 	// 배경이미지

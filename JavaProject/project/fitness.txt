@@ -22,4 +22,17 @@ name varchar2(30),gender varchar2(30),age number(5),tel number(5),program varcha
 시퀀스
 create sequence seq_fitness;
 
+FitnessDbConn클래스 ,getOracle 메서드 : 오라클 연결
+
+오라클
+https://www.oracle.com/kr/database/technologies/xe-downloads.html
+https://www.oracle.com/database/sqldeveloper/technologies/download/
+
+
+
+
+
+
+
+
 
