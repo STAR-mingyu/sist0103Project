@@ -10,8 +10,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="lblPhoto"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="cbBan"/>
+			<item value="SwingJdbcScore"/>
+			<item value="tfName"/>
 			<item value="lblPhoto"/>
 			<item value="num"/>
 			<item value="addForm"/>
@@ -24,9 +27,6 @@
 			<item value="C:\sist0103\file"/>
 			<item value="sAddr"/>
 			<item value="getTimeSudang"/>
-			<item value="setPrice"/>
-			<item value="getName"/>
-			<item value="setName"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
