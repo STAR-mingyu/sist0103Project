@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        var b2 = document.getElementById("btn2");
+        b2.onclick = function () {
+          var name = prompt("당신의 이름은?");
+          if (name == null) {
+            alert("취소버튼을 눌렀네요~~");
+          } else {
+            alert("내 이름은 " + name + "입니다");
+          }
+        };
+      };
+
+      function hello() {
+        var ans = confirm("정말삭제하시겠습니까?");
+        console.log(ans); //크롬콘솔에서 확인하기,반환타입이 true/false
+
+        if (ans) {
+          alert("데이터를 삭제했습니다");
+        } else {
+          alert("삭제작업을 취소했습니다");
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="../css/buttonStyle.css" />
+  </head>
+  <body>
+    <button class="btn btn-green" type="button" onclick="alert('안녕하세요')">
+      Alert
+    </button>
+    <button class="btn btn-pink" type="button" id="btn2">Prompt</button>
+    <button class="btn btn-red" type="button" onclick="hello()">Confirm</button>
+  </body>
+</html>

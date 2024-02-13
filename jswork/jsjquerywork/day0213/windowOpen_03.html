@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- window.open()
+    var 객체변수명 = window.open("url","name","space")
+    새로운 브라우저 창 열기
+    -->
+
+    <!-- window.setTimeout(function(){},밀리초) -->
+    <script src="../js/popup.js"></script>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <a href="javascript:;" onclick="pop1()">공지사항</a>
+      </li>
+      <li>
+        <a
+          href="javascript:;"
+          onclick="window.open('https://cafe.naver.com/javasoo?iframe_url_utf8=%2FArticleRead.nhn%3FreferrerAllArticles%3Dfalse%26menuid%3D1%26page%3D1%26boardtype%3DL%26clubid%3D27451003%26articleid%3D857','cafe','width=500,height=600')"
+          >뉴스</a
+        >
+      </li>
+      <li>
+        <a href="javasvript:;" onclick="pop2()">이벤트</a>
+      </li>
+    </ol>
+  </body>
+</html>

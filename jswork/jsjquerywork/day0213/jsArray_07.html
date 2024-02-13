@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+  <body>
+    <script>
+      for (var i = 1; i <= 10; i++) {
+        document.write("<b>" + i + "</b><br>");
+      }
+
+      document.write("<br><br>");
+      //Food폴더의 1~10번까지를 출력하시오 (너비:100)
+      for (var i = 1; i <= 10; i++) {
+        document.write(
+          "<img src='../image/Food/" + i + ".jpg' width='100' alt=''>"
+        );
+
+        console.log(i);
+      }
+
+      //logoimg폴더에 toy01 toy06까지 출력하시오
+      for (var i = 1; i <= 6; i++) {
+        document.write(
+          "<img src='../image/logoImg/toy0" + i + ".png' width='100' alt=''>"
+        );
+      }
+
+      //사진의 일련번호가 없을때 이미지를 배열에 담아 출력
+      var imgArr = [
+        "a01",
+        "a06",
+        "a03",
+        "acc01",
+        "acc02",
+        "bag01",
+        "blackwidow",
+      ];
+
+      for (var i = 0; i < imgArr.length; i++) {
+        var f = "<img src='../image/logoImg/" + imgArr[i] + ".png'>";
+        document.write(f);
+      }
+
+      document.write("<br><br>")
+
+      //   Q만화이미지의 01.png~20.png까지를 출력하세요
+      for (var i = 1; i <= 9; i++) {
+        document.write ("<img src='../image/만화이미지/0" + i + ".png' style='width:20%'>");
+        if(i%5==0){
+            document.write ("<br><br>");
+        }
+      }
+      for (var i = 10; i <= 20; i++) {
+        document.write ("<img src='../image/만화이미지/" + i + ".png' style='width:20%'>");
+        if(i%5==0){
+            document.write ("<br><br>");
+        }
+      }
+    
+    </script>
+    <img src="" alt="" style="width: 25%;">
+  </body>
+</html>

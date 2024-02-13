@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>배열변수에 색상5개 지정후 배열값을 해당색상으로 출력</h3>
+    <script>
+      var arr1 = ["green", "blue", "pink", "orange"];
+
+      for (var i = 0; i < arr1.length; i++) {
+        document.write(
+          "<b style='color:" + arr1[i] + "'>" + arr1[i] + "</b>&nbsp&nbsp"
+        );
+      }
+
+      document.write("<hr>");
+
+      //   of:arr1의 배열값이 차례대로 반복해서 꺼내진다(자바의 확장 for문과 비슷)
+      for (var n of arr1) {
+        document.write("<b style='color:" + n + "'>" + n + "</b>&nbsp&nbsp");
+      }
+      document.write("<hr>");
+      //in:배열의 인덱스를 얻고자 할경우
+
+      for (var idx in arr1) {
+        document.write("<b>" + idx + ":" + arr1[idx] + "</b>&nbsp&nbsp");
+      }
+    </script>
+
+    <h3>이미지를 배열초기값으로 지정후 출력</h3>
+    <script>
+      var imgArr = [
+        "../image/만화이미지/02.png",
+        "../image/만화이미지/03.png",
+        "../image/만화이미지/04.png",
+        "../image/만화이미지/05.png",
+      ];
+
+      var s = "배열개수 : " + imgArr.length + "<br>";
+      for (var i = 0; i < imgArr.length; i++) {
+        s += "<img src='" + imgArr[i] + "';><br>";
+      }
+      document.write(s);
+    </script>
+
+    <h3>배열_new Array()로 지정후 출력</h3>
+    <script>
+      var imgArr2 = new Array(4);
+      imgArr2[0] = "../image/만화이미지/06.png";
+      imgArr2[1] = "../image/만화이미지/07.png";
+      imgArr2[2] = "../image/만화이미지/08.png";
+      imgArr2[3] = "../image/만화이미지/09.png";
+
+      var s2 = "배열개수" + imgArr2.length + "<br>";
+      for (var i = 0; i < imgArr2.length; i++) {
+        s2 += "<img src='" + imgArr2[i] + "'><br>";
+      }
+      document.write(s2);
+    </script>
+
+    <h3>배열_new Array()로 지정후 출력_push로 5개 삽입후 출력</h3>
+    <h3>위의 예제에서 마지막 이미지 2개 지우시고 다시 출력</h3>
+    <script>
+      var pushArr = new Array();
+      for (var i = 1; i <= 5; i++) {
+        pushArr.push("<img src='../image/쇼핑몰사진/" + i + ".jpg'>");
+      }
+
+      document.write(pushArr);
+      document.write("<br><br>")
+      pushArr.pop();
+      pushArr.pop();
+      document.write(pushArr);
+    </script>
+  </body>
+</html>
