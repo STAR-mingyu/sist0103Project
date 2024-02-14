@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function dataSend() {
+        window.opener.frm.name.value = frm.name.value;
+        window.opener.frm.addr.value = frm.addr.value;
+        window.opener.frm.hp.value = frm.hp.value;
+        // opener는 현재 열려있는곳이 opener.document
+        window.close();
+      }
+    </script>
+  </head>
+  <body>
+    <form action="#" name="frm">
+      <table border="1" style="width: 200px">
+        <tr>
+          <th>이름</th>
+          <td><input type="text" / name="name" size="12"></td>
+        </tr>
+        <tr>
+          <th>주소</th>
+          <td><input type="text" / name="addr" size="22"></td>
+        </tr>
+        <tr>
+          <th>핸드폰</th>
+          <td><input type="text" / name="hp" size="15"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="button" value="데이타 입력" onclick="dataSend()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

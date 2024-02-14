@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/buttonStyle.css" />
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+        border: 10px groove pink;
+        object-fit: cover;
+      }
+
+      input {
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        document.getElementById("btn1").onclick = function () {
+          myimg1.setAttribute("src", "../image/만화이미지/01.png");
+          myimg2.setAttribute("src", "../image/만화이미지/02.png");
+        };
+        document.getElementById("btn2").onclick = function () {
+          myimg1.setAttribute("src", "../image/만화이미지/03.png");
+          myimg2.setAttribute("src", "../image/만화이미지/04.png");
+        };
+        document.getElementById("btn3").onclick = function () {
+          myimg1.setAttribute("src", "../image/logoImg/toy01.png");
+          myimg2.setAttribute("src", "../image/logoImg/toy02.png");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <img src="../image/logoImg/toy01.png" alt="" id="myimg1" />
+    <hr />
+    <img src="../image/logoImg/toy02.png" alt="" id="myimg2" />
+    <hr />
+    <input type="button" value="변경1" id="btn1" class="btn btn-green" />
+    <input type="button" value="변경2" id="btn2" class="btn btn-pink" />
+    <input type="button" value="원래대로" id="btn3" class="btn btn-red" />
+  </body>
+</html>

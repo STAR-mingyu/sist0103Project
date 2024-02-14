@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Protest Strike";
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 500px;
+        border: 3px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="frm">
+      <table>
+        <caption>
+          <b>폼태그 과제_개인정보</b>
+        </caption>
+        <tr>
+          <th>이름</th>
+          <td>
+            <input type="text" id="name" size="10" placeholder="이름" />
+          </td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td>
+            <input type="password" size="12" placeholder="비밀번호" / id="password">
+          </td>
+        </tr>
+        <tr>
+          <th>혈액형</th>
+          <td>
+            <input type="radio" name="blood" value="A" />A형
+            <input type="radio" name="blood" value="B" />B형
+            <input type="radio" name="blood" value="O" />O형
+            <input type="radio" name="blood" value="AB" />AB형
+          </td>
+        </tr>
+
+        <tr>
+          <th>가능언어</th>
+          <td>
+            <input type="checkbox" name="lang" value="C언어" />C언어
+            <input type="checkbox" name="lang" value="JAVA" />JAVA
+            <input type="checkbox" name="lang" value="JQUERY" />JQUERY
+            <input type="checkbox" name="lang" value="SPRING" />SPRING
+          </td>
+        </tr>
+
+        <tr>
+          <th>입사일자</th>
+          <td>
+            <input type="date" value="2022-01-01" id="ipsa" />
+          </td>
+        </tr>
+        <tr>
+          <td align="center" colspan="2">
+            <input type="button" value="결과출력" id="btnResult">
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="result">결과출력하는곳</div>
+  </body>
+  <script>
+    document.getElementById("btnResult").onclick = function () {
+      var s = "";
+      s="이름 : "+document.getElementById("name").value+"<br>";
+      s+="비밀번호 : " + document.getElementById("password").value+"<br>";
+      s+="혈핵형 : " + frm.blood.value+"형<br>";
+      
+      var arr = [];
+      var lang = document.getElementsByName("lang");
+      for(var i =0;i<lang.length;i++){
+        if(lang[i].checked==true) {
+            arr.push(lang[i].value);
+        } 
+      }
+
+      s+="가능언어 : " + arr+"<br>";
+      s+="입사일자 : " + ipsa.value;
+
+      
+
+      document.getElementById("result").innerHTML=s;
+    };
+  </script>
+</html>
