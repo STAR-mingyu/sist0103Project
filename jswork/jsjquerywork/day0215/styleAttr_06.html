@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #out {
+        border: 0px solid green;
+        font-weight: 700;
+        padding: 20px;
+        margin-top: 20px;
+        width: 500px;
+        height: 200px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        // 버튼 이벤트 3px씩 감소/증가되도록
+        // 10보다 작아지면 "더이상 못줄인다" 후에 종료
+        // 60보다 커지면 "더이상 못키움"후에 종료
+        // 버튼 키우고 감소시  fsize에 현재 폰트 크기 나오게...
+
+        document.getElementById("fsize").innerHTML =
+          "현재 글꼴 크기는 40 px입니다";
+
+        // 작게버튼
+        document.getElementById("btn1").onclick = function () {
+          var outsize = parseInt(out.style.fontSize);
+          // alert(outsize);
+          outsize -= 3;
+
+          if (outsize < 10) {
+            alert("더이상 줄일 수 없습니다");
+            return false;
+          }
+
+          out.style.fontSize = outsize + "px";
+          fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다";
+        };
+        // 크게버튼
+        document.getElementById("btn2").onclick = function () {
+          var outsize = parseInt(out.style.fontSize);
+          // alert(outsize);
+          outsize += 3;
+
+          if (outsize > 60) {
+            alert("더이상 커질 수 없습니다");
+            return false;
+          }
+          out.style.fontSize = outsize + "px";
+          fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다";
+        };
+
+        // 글자색변경
+        document.getElementById("myfontcolor").onchange = function () {
+          out.style.color = this.value;
+        };
+        // 배경색변경
+        document.getElementById("mybackcolor").onchange = function () {
+          out.style.backgroundColor = this.value;
+        };
+        // 테두리 변경
+        document.getElementById("border").onchange = function () {
+          out.style.border = this.value;
+        };
+        document.getElementById("fontfamily").onchange = function () {
+          out.style.fontFamily = this.value;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" id="btn1">점점작게</button>
+    <button type="button" id="btn2">점점크게</button>
+    <div id="fsize">현재 폰트 사이즈 나오는곳..</div>
+    <b style="margin-top: 20px">글자색 선택 : </b>
+    <input
+      type="color"
+      id="myfontcolor"
+      value="#ffooff"
+      style="margin-top: 20px"
+    /><br />
+    <b style="margin-top: 20px">배경색 선택 : </b>
+    <input
+      type="color"
+      id="mybackcolor"
+      value="#ffooff"
+      style="margin-top: 20px"
+    /><br />
+    <b style="margin-top: 20px">테두리선 굵기 선택 : </b>
+    <select name="" id="border">
+      <!-- value가 있을경우 value우선으로 읽고 없을때는 option사이값 -->
+      <option value="10px solid red">red</option>
+      <option value="10px solid blue">blue</option>
+      <option value="10px solid pink">pink</option>
+      <option value="10px solid gray">gray</option>
+      <option value="10px solid black">black</option>
+      <option value="10px solid green">green</option>
+    </select>
+    <b style="margin-top: 20px">글꼴 선택 : </b>
+    <select name="" id="fontfamily">
+      <option value="Noto Serif KR">Noto Serif KR</option>
+      <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+      <option value="Nanum Gothic">Nanum Gothic</option>
+      <option value="Noto Sans KR">Noto Sans KR</option>
+    </select>
+    <div id="out" style="font-size: 40px">오늘은 비오는 우울한 목요일</div>
+  </body>
+</html>
