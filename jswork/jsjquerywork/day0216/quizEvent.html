@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .quiz {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>1.연예인 1.jpg~20.jpg까지 for 반복문 이용해서 body에 출력하기</h3>
+
+    <div class="quiz">quiz1</div>
+
+    <script>
+      // 퀴즈1
+      function quiz1() {
+        for (var i = 1; i <= 20; i++) {
+          var img = (innerHTML =
+            "<img src='../image/연예인사진/" +
+            i +
+            ".jpg' style='width:100px'>");
+          document.write(img);
+        }
+      }
+
+      quiz1();
+    </script>
+    <h3>
+      2.Food사진 1.jpg를 img태그로 나타낸후 id를 img1으로 주고 그 아이디로
+      이벤트 추가 사진에 마우스 올리면 10.jpg로 바뀌고 클릭하면 11.jpg로 바뀌며
+      마우스 벗어나면 원래 자기자신으로 (1.jpg) 변경되도록 이벤트 주기
+    </h3>
+    <div class="quiz">quiz2</div>
+    <img src="../image/Food/1.jpg" alt="" id="img1" />
+    <script>
+      function quiz2() {
+        var src = document.getElementById("img1").getAttribute("src");
+        document.getElementById("img1").onmouseover = function () {
+          // document.querySelectorAll("#img1").onmouseover = function () {
+          // document.querySelector("#img1").onmouseover = function () {
+          document
+            .getElementById("img1")
+            .setAttribute("src", "../image/Food/10.jpg");
+        };
+
+        document.getElementById("img1").onmouseout = function () {
+          document.getElementById("img1").setAttribute("src", src);
+        };
+
+        document.getElementById("img1").onclick = function () {
+          document
+            .getElementById("img1")
+            .setAttribute("src", "../image/Food/11.jpg");
+        };
+      }
+
+      quiz2();
+    </script>
+
+    <div class="quiz">quiz3</div>
+    <h3>
+      버튼을 하나 만들고 버튼을 클릭시 prompt로 이름을 입력받아서 div태그안에
+      "내 이름은 홍길동 입니다" 라고 출력할듯(div에 class="iyou" 라고 준후 css로
+      스타일 적용해볼것)
+    </h3>
+
+    <button type="button" id="btn">버튼입력</button>
+    <div class="iyou" id="out">출력..</div>
+    <script>
+      function quiz3() {
+        document.getElementById("btn").onclick = function () {
+          var pro = prompt("이름을 입력하시오");
+          document.getElementById("out").innerHTML = pro;
+          // document.querySelector(".iyou").innerHTML = pro;
+          //   document.querySelectorAll(".iyou").innerHTML = pro;
+        };
+      }
+
+      quiz3();
+    </script>
+  </body>
+</html>

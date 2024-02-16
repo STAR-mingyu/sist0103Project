@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #photo {
+        position: relative;
+        left: 100px;
+        top: 20px;
+        transition: all 0.6s ease-in-out;
+      }
+
+      #time {
+        font-size: 2em;
+        margin-left: 100px;
+        font-weight: 700;
+      }
+      #myimg {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../image/만화이미지/01.png" alt="" id="photo" />
+    <script>
+      var photo = document.querySelector("#photo");
+
+      setTimeout(function () {
+        photo.style.left = "500px";
+        photo.style.top = "200px";
+        // photo.style.width = "400px";
+      }, 3000); //3초뒤 함수호출
+    </script>
+    <h2>setTimeout & setInterval에 대한 공부</h2>
+    <div id="time"></div>
+    <script>
+      function writeTime() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+
+        // var time = h + ":" + m + ":" + s;
+        var time =
+          h + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+        // 한자리 숫자일 경우에는 앞에 0을 붙이기
+
+        document.getElementById("time").innerHTML = time;
+      }
+
+      //   1초마다 시간 다시 출력
+      setInterval(function () {
+        writeTime();
+      }, 1000);
+    </script>
+
+    <hr />
+    <img src="../image/jquery_img/01.png" alt="" id="myimg" /><br /><br />
+    <button type="button" id="btngo">Go!!</button>
+    <button type="button" id="btnstop">Stop!!</button>
+
+    <script>
+      window.onkeyup = function (e) {
+        console.log(e.keyCode); //위:38 아래:40 우:39 좌:37 엔터:13
+      };
+      //   go버튼 누르면 0.1초마다 이동
+      var myimg;
+      var xpos = 0;
+      var ms = 100;
+      var inter;
+
+      myimg = document.getElementById("myimg");
+
+      document.getElementById("btngo").onclick = function () {
+        inter = setInterval(function () {
+          myimg.style.left = xpos + "px";
+          xpos += 10;
+        }, ms);
+      };
+
+      document.getElementById("btnstop").onclick =function(){
+        clearInterval(inter);
+      }
+    </script>
+  </body>
+</html>
