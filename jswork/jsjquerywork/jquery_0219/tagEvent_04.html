@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <h3 class="a"></h3>
+    <h3></h3>
+    <h3 class="b">h3의 내용을 이곳에 복사하세요</h3>
+    <hr />
+    <h2>
+      아래 사진을 클릭시 scr와 width값을 얻어서 hr태그 다음에 같은 이름의 사진
+      넣기<br />사진의 title을 얻어서 div안에 넣고 글자크기를 30px 글꼴은 알아서
+    </h2>
+    <img
+      src="../image/연예인사진/16.jpg"
+      alt=""
+      width="200"
+      title="나는 성준"
+      class="qimg"
+    />
+    <hr / class="qhr">
+    <div class="qdiv"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(".a")
+        .html("<b> 최애 캐릭터 입니다</b>")
+        .append("<img src='../image/만화이미지/01.png'>");
+
+      // 문제
+      // h3.a를 클릭하면 "안의 코드를 복사하였습니다"라고 경고창 띄운다
+      // h3.a를 클릭하면 그내용이 그대로 출력된다
+      $("h3.a").click(function () {
+        tag = $(this).html();
+        alert("안의 코드를 복사하였습니다");
+      });
+
+      $("h3.b").click(function () {
+        // $(this).html(tag);
+        $(this).append(tag);
+      });
+
+      $(".qimg").click(function () {
+        var src = $(this).attr("src");
+        var width = $(this).attr("width");
+        var title = $(this).attr("title");
+        // alert(src);
+        // alert(width);
+        // alert(title);
+        $(".qhr").append("<img src='" + src + "' width='" + width + "'>");
+        $(".qdiv")
+          .css({ "font-size": "30px", "font-family": "Pretendard Variable" })
+          .prepend("<b>" + title + "</b>");
+      });
+    </script>
+  </body>
+</html>

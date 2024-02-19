@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="../image/연예인사진/15.jpg" alt="" id="photo" />
+    <div id="msg">메세지출력</div>
+    <script>
+      // 3초마다 연예인 사진이 바뀌게 하기
+
+      //   3초마다 메세지가 msgarr로 변하기
+
+      //   setInterval(function () {
+      //     var msgarr = [
+      //       "아름다운 밤이에요~~",
+      //       "오늘은 비가 오네요",
+      //       "이제는 봄",
+      //       "내가 좋아하는 연예인",
+      //     ];
+      //     var mscolorarr = ["magenta","gray","green","cyan","orange","brown"];
+      //     var randomimg = parseInt(Math.random() * 20) + 1;
+      //     var randomtext = parseInt(Math.random() * 4);
+      //     var cidx = parseInt(Math.random()*6);
+      //     document
+      //       .getElementById("photo")
+      //       .setAttribute("src", "../image/연예인사진/" + randomimg + ".jpg");
+
+      //     document.getElementById("msg").innerHTML = msgarr[randomtext];
+      //     document.getElementById("msg").style.color = mscolorarr[cidx];
+      //   }, 3000);
+
+      setInterval(() => {
+        var msgarr = [
+          "아름다운 밤이에요~~",
+          "오늘은 비가 오네요",
+          "이제는 봄",
+          "내가 좋아하는 연예인",
+        ];
+        var mscolorarr = [
+          "magenta",
+          "gray",
+          "green",
+          "cyan",
+          "orange",
+          "brown",
+        ];
+        var randomimg = parseInt(Math.random() * 20) + 1;
+        var randomtext = parseInt(Math.random() * 4);
+        var cidx = parseInt(Math.random() * 6);
+        document
+          .getElementById("photo")
+          .setAttribute("src", "../image/연예인사진/" + randomimg + ".jpg");
+
+        document.getElementById("msg").innerHTML = msgarr[randomtext];
+        document.getElementById("msg").style.color = mscolorarr[cidx];
+      }, 3000);
+    </script>
+  </body>
+</html>

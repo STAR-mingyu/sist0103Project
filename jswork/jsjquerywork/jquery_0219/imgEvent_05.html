@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      img:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>마우스 올리면 이미지가 변경되고 벗어나면 원래대로</h2>
+    <img src="../image/Food/1.jpg" alt="" class="img1" />
+    <img src="../image/Food/10.jpg" alt="" / class="img2"> <img
+    src="../image/Food/12.jpg" alt="" / class="img3">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var src;
+      $("img").hover(
+        function () {
+            src=$(this).attr("src");
+          $(this).attr("src", "../image/Food/3.jpg");
+        },
+        function () {
+          $(this).attr("src", src);
+        }
+      );
+
+      
+    </script>
+  </body>
+</html>

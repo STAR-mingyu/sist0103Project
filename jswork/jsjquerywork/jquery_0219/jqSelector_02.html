@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <h2>css,attr_jqery에서 가장 많이 사용하는 함수</h2>
+    <b class="rain">B Tag Class rain</b>
+    <br />
+    <span class="nice">Span Tag Class nice</span>
+    <br />
+    <h3>H3 Tag Class happy</h3>
+    <h2>이미지들</h2>
+    <b class="my">B Tag class my</b>
+    <img src="" alt="" />
+    <img src="" alt="" class="likeimg" />
+    <img src="" alt="" />
+    <img src="" alt="" title="" irum="" id="loveimg" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      //   css:스타일 attr:속성
+      // 모든 b태그 글꼴그키 30px으로 변경,글꼴 변경
+      $("b").css({ "font-size": "30px", "font-family": "Pretendard Variable" });
+      $("b.rain").css("background-color", "orange");
+      $("h2").css({ border: "1px solid red", color: "blue" });
+      $("img").attr("src", "../image/만화이미지/01.png");
+      // $("img").css("width", "100px");
+      $("img").attr("src", "../image/만화이미지/01.png").css("width", "100px");
+
+      // 1.img태그중 likeimg의 이미지를 변경(width,border-radius,border,box-shadow)
+      $(".likeimg").attr("src", "../image/만화이미지/02.png").css({
+        width: "160px",
+        "border-radius": "100px",
+        border: "1px solid black",
+        height: "160px",
+        "box-shadow": "10px 5px 10px 10px black inset",
+      });
+
+      // 2.nics라는 클래스를 가진
+      $(".nice").css({
+        "background-color": "red",
+        "font-size": "pink",
+        color: "orange",
+      });
+      // 한줄로도 바꾸기 가능
+
+      // 3. id가 loveimg인 이미지를 다른 이미지로 변경하고 title을 안녕 제이쿼리로 변경하시오
+      $("#loveimg")
+        .attr("src", "../image/만화이미지/05.png")
+        .attr("title", "안녕 제이쿼리");
+    </script>
+  </body>
+</html>

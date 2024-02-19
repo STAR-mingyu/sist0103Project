@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="good">h2 id good</h2>
+    <h3 class="good2">h3 class good2</h3>
+    <div class="hello">
+      div class hello
+      <div>div hello 아래 div</div>
+    </div>
+    <div class="bts">
+      <b>div bts 아래 b태그</b>
+      <span>div bts아래 span태그</span>
+      <div>
+        div bts아래 div
+        <img src="../image/logoImg/a03.png" alt="" />
+      </div>
+    </div>
+    <div class="hello">
+      div 2번째 hello
+      <img src="../image/Food/1.jpg" alt="" />
+      <div>div hello 아래 div</div>
+    </div>
+
+      <b>단독 b태그#1</b><br />
+      <b>단독 b태그#2</b><br />
+      <b>단독 b태그#3</b><br />
+      <b>단독 b태그#4</b><br />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("#good").css("color", "red").css("background-color", "blue");
+
+      $(".good2").css({ background: "red", color: "blue" });
+
+      //   var goodBg = $("#good").css("background-color");
+      //   $("div.hello").css("color",goodBg);
+      $("div.hello").css("color", $("#good").css("background-color"));
+      $("div.bts").css({
+        position: "absolute",
+        left: "top",
+        width: "300px",
+        height: "150px",
+        border: "10px inset gold",
+      });
+      $("b").css("color", "pink");
+      $("b:eq(1)").css("color","red");
+      $("b").eq(2).css("color","blue");
+      $("b:first").css("border","1px solid red");
+      $("b:last").css("border","1px solid red");
+
+      
+    </script>
+  </body>
+</html>
