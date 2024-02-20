@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      div {
+        width: 500px;
+        height: 130px;
+        text-align: center;
+        line-height: 130px;
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
+
+      .hello_0 {
+        border: 10px groove pink;
+        font-family: "Pretendard Variable";
+        background-color: aqua;
+        color: rgb(34, 43, 43);
+      }
+      .hello_1 {
+        border: 10px groove rgb(122, 87, 93);
+        font-family: "Pretendard Variable";
+        background-color: rgb(89, 116, 116);
+        color: rgb(24, 83, 83);
+      }
+      .hello_2 {
+        border: 10px groove rgb(231, 15, 51);
+        font-family: "Pretendard Variable";
+        background-color: rgb(42, 172, 70);
+        color: rgb(158, 32, 120);
+      }
+      .hello_3 {
+        border: 10px groove rgb(218, 122, 138);
+        font-family: "Pretendard Variable";
+        background-color: rgb(192, 201, 63);
+        color: rgb(75, 39, 122);
+      }
+      .hello_4 {
+        border: 10px groove rgb(163, 18, 42);
+        font-family: "Pretendard Variable";
+        background-color: rgb(19, 80, 211);
+        color: rgb(18, 9, 29);
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button">스타일적용</button>
+    <button type="button">스타일제거</button>
+    <div>안녕하세요</div>
+    <div>오늘은 addClass</div>
+    <div>배우는날</div>
+    <div>each문도</div>
+    <div>어렵지 않아요</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("button:eq(0)").click(function () {
+        $("div").each(function (idx) {
+          $(this)
+            .addClass("hello_" + idx)
+            .css("font-weight", "700");
+        });
+      });
+      $("button:eq(1)").click(function () {
+        $("div").each(function (idx) {
+          $(this).removeClass();
+        });
+      });
+    </script>
+  </body>
+</html>

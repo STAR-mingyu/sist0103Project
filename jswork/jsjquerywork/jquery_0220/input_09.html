@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>R,G,B색상 입력하기</h3>
+    R: <input type="text" value="255" / id="txtr">&nbsp;&nbsp;&nbsp; G:
+    <input type="text" value="0" / id="txtg">&nbsp;&nbsp;&nbsp; B:
+    <input type="text" value="255" / id="txtb">&nbsp;&nbsp;&nbsp;
+
+    <div></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("input[type='text']").css({
+        border: "2px solid gray",
+        width: "100px",
+        height: "30px",
+        "font-size": "24px",
+      });
+      var r = 255,
+        g = 0,
+        b = 255;
+      var color = "rgb(" + r + "," + g + "," + b + ")";
+      $("div").css({
+        width: "500px",
+        height: "200px",
+        border: "5px solid gray",
+        "background-color": color,
+        "margin-top": "50px",
+      });
+
+
+      $("#txtr").keyup(function(){
+         r = $(this).val();
+         color = "rgb(" + r + "," + g + "," + b + ")";
+         $("div").css("background",color);
+      });
+      $("#txtg").keyup(function(){
+         g = $(this).val();
+         color = "rgb(" + r + "," + g + "," + b + ")";
+         $("div").css("background",color);
+      });
+      $("#txtb").keyup(function(){
+         b = $(this).val();
+         color = "rgb(" + r + "," + g + "," + b + ")";
+         $("div").css("background",color);
+      });
+    </script>
+  </body>
+</html>

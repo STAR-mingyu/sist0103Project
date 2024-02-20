@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>0</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <span>span</span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("div").css({
+        width: "100px",
+        height: "100px",
+        border: "1px solid gray",
+        "font-size": "20px",
+        float: "left",
+        "margin-right": "10px",
+        "text-align": "center",
+        "line-height": "100px",
+        cursor: "pointer",
+      });
+
+      $("span").css("font-size", "20px");
+
+      //   alert($("div").length);
+      for (var i = 0; i < $("div").length; i++) {
+        // rgb 색상 얻어
+        var r = parseInt(Math.random() * 256);
+        var g = parseInt(Math.random() * 256);
+        var b = parseInt(Math.random() * 256);
+        var color = "rgb(" + r + "," + g + "," + b + ")";
+        $("div").eq(i).css("background-color", color);
+      }
+      $("div").click(function () {
+        var background = $(this).css("background-color");
+        $(this).siblings("span").text(background);
+      });
+    </script>
+  </body>
+</html>

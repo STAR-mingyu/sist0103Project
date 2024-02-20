@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bg_0 {
+        background-color: orange;
+        color: blue;
+      }
+      .bg_1 {
+        background-color: rgb(65, 56, 40);
+        color: rgb(118, 118, 175);
+      }
+      .bg_2 {
+        background-color: rgb(41, 182, 88);
+        color: rgb(41, 93, 161);
+      }
+      .bg_3 {
+        background-color: rgb(90, 15, 112);
+        color: rgb(204, 59, 197);
+      }
+      .bg_4 {
+        background-color: rgb(167, 23, 66);
+        color: rgb(122, 52, 76);
+      }
+      ul {
+        overflow: hidden;
+        width: 150px;
+      }
+
+      ul li {
+        width: 150px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+
+    <hr />
+    <ul>
+      <li>apple</li>
+      <li>orange</li>
+      <li>banana</li>
+      <li>kiwi</li>
+      <li>blueberry</li>
+    </ul>
+
+    <!-- 태그 반복할때 사용하는 each문 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      // b테그 갯수만큼 자동반복
+      //   i는 index:0부터
+      // element는 인덱스에 해당하는 b태그 (생략가능)
+      $("b").each(function (i, ele) {
+        $(this).text(i);
+      });
+
+      //   $("li").each(function (idx) {
+      //     $(this).addClass("bg_" + idx);
+      //   });
+
+      $("li").each(function (idx, ele) {
+        $(ele).addClass("bg_" + idx);
+      });
+
+      //   li에 마우스 올려서 뒤에 ***출력
+      $("li").hover(
+        function () {
+          // $(this).append("<b>****</b>");
+          $(this).after("<b>****</b>");
+        },
+        function () {
+          $(this).parents("body").find("b").remove();
+        }
+      );
+    </script>
+  </body>
+</html>

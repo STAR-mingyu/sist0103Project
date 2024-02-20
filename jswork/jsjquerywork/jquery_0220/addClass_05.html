@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .highlight_0 {
+        background-color: #5e86a8;
+      }
+      .highlight_1 {
+        background-color: rgb(158, 224, 167);
+      }
+      .highlight_2 {
+        background-color: rgb(39, 45, 51);
+      }
+      .highlight_3 {
+        background-color: rgb(32, 189, 163);
+      }
+      .highlight_4 {
+        background-color: rgb(80, 20, 62);
+      }
+      .highlight_5 {
+        background-color: rgb(197, 25, 68);
+      }
+      .list_1 {
+        color: rgb(55, 68, 78);
+      }
+      .list_2 {
+        color: rgb(86, 127, 158);
+      }
+      .list_3 {
+        color: rgb(192, 164, 71);
+      }
+      .list_4 {
+        color: rgb(53, 150, 126);
+      }
+      .list_5 {
+        color: rgb(216, 199, 43);
+      }
+      .list_6 {
+        color: rgb(159, 38, 170);
+      }
+    </style>
+  </head>
+  <body>
+    <h4>하이라이트 적용</h4>
+    <h4>하이라이트 적용</h4>
+    <h4>하이라이트 적용</h4>
+    <h4>하이라이트 적용</h4>
+    <h4>하이라이트 적용</h4>
+    <h4>하이라이트 적용</h4>
+    <ol>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+      <li>five</li>
+      <li>six</li>
+    </ol>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("h4").each(function (idx) {
+        $(this)
+          .addClass("highlight_" + idx)
+          .css("width", "140px");
+      });
+      $("li").each(function (idx) {
+        $(this)
+          .addClass("list_" + idx)
+          .css("font-weight", "700");
+      });
+    </script>
+  </body>
+</html>

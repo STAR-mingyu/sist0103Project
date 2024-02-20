@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .hello {
+        box-shadow: 10px 10px 10px gray;
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>작은 이미지에 each문으로 사진넣기</h3>
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <img src="" alt="" class="small" />
+    <br />
+    <img src="" alt="" class="large" /
+    onerror="this.src='../image/만화이미지/01.png'">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(".small").each(function (idx) {
+        $(this)
+          .attr("src", "../image/쇼핑몰사진/" + (idx + 1) + ".jpg")
+          .css({ width: "100px", border: "1px solid red", height: "100px" });
+      });
+
+      $(".large").css({
+        width: "300px",
+        height: "300px",
+        border: "10px dotted blue",
+      });
+
+      $(".small").hover(
+        function () {
+          $(".large").attr("src", $(this).attr("src")).addClass("hello");
+          $(this).addClass("hello");
+        },
+        function () {
+          $(this).removeClass("hello");
+          $(".large").removeClass("hello");
+        }
+      );
+    </script>
+  </body>
+</html>

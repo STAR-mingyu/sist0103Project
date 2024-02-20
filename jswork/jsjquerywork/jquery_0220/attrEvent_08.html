@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var imgArr = new Array(5);
+      imgArr[0] = "../image/만화이미지/01.png";
+      imgArr[1] = "../image/만화이미지/02.png";
+      imgArr[2] = "../image/만화이미지/03.png";
+      imgArr[3] = "../image/만화이미지/04.png";
+      imgArr[4] = "../image/만화이미지/05.png";
+
+      $("img")
+        .attr("src", "../image/만화이미지/01.png")
+        .css({ width: "100px", height: "100px", border: "1px solid red" });
+      $("img").hover(
+        function () {
+          currImg = $(this).attr("src");
+
+          var ranIdx = parseInt(Math.random() * 5);
+          $(this).attr("src", imgArr[ranIdx]);
+        },
+        function () {
+          $(this).attr("src", currImg);
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      박보영 사진에 마우스 갖다대면 17번 신민아로 마우스 벗어나면 다시
+      박보영으로
+    </h2>
+    <img
+      src="../image/연예인사진/12.jpg"
+      alt=""
+      width="200"
+      irum="박보영"
+      class="img"
+    /><br />
+    <figure>
+      <img src="../image/Food/1.jpg" alt="" / width="150">
+      <figcaption>에그샌드위치</figcaption>
+    </figure>
+    <figure>
+      <img src="../image/Food/10.jpg" alt="" / width="150">
+      <figcaption>스팸에그마요덮밥</figcaption>
+    </figure>
+
+    <h3>그냥 이미지들</h3>
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var src;
+      $(".img").hover(
+        function () {
+          src = $(this).attr("src");
+          $(this).attr("src", "../image/연예인사진/17.jpg");
+        },
+        function () {
+          $(this).attr("src", src);
+        }
+      );
+
+      var name;
+      $(".img").click(function () {
+        $("img:eq(3)").attr({
+          src: "../image/연예인사진/12.jpg",
+          width: "100",
+        });
+        name = $(this).attr("irum");
+        $("img:eq(3)").before("<b>" + name + "</b>");
+      });
+
+      $("h3").hover(
+        function () {
+          $(this).css("color", "blue");
+        },
+        function () {
+          $(this).css("color", "#000");
+        }
+      );
+
+      var imgsrc;
+      var imgwidth;
+      $("figure img").click(function () {
+        imgsrc = $(this).attr("src");
+        imgwidth = $(this).attr("width");
+        $("img:gt(3)").attr("src", imgsrc).css("width", imgwidth);
+
+        var foodname = $(this).next().text();
+        $("h3:eq(0)").text(foodname);
+      });
+    </script>
+  </body>
+</html>

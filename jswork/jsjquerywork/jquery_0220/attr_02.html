@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+  </head>
+  <body>
+    <h3>
+      <b>에그볶음밥</b>
+      <br />
+      <span>../image/Food/6.jpg</span>
+    </h3>
+    <hr />
+    <h3>
+      <b>망고빙수</b>
+      <br />
+      <span>../image/Food/11.jpg</span>
+    </h3>
+    <hr />
+    <h3>
+      <b>순두부찌개</b>
+      <br />
+      <span>../image/Food/12.jpg</span>
+    </h3>
+    <hr />
+    <img src="" alt="" class="photo" />
+    <h2></h2>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      // 1.h3>b 태그 글자색을 green으로 변경 배경색을 #ffddff로 변경
+      $("h3 b").css({ color: "green", "background-color": "#ffddff" });
+      // 2.모든 h3 너비 400px border 2px inset orange margin bottom 10px로 변경
+      $("h3").css({
+        width: "400px",
+        border: "2px inset orange",
+        "margin-bottom": "10px",
+      });
+      // 3.모든 span 폰트 변경하고 글자색  purple로변경
+      $("span").css({ "font-family": "Pretendard Variable", color: "purple" });
+      // 4.모든 b태그 클릭하면 b태그의 글자을 가져와서 h2태그에 넣아주세요
+      // 그리고 이미지에 해당이미지 나타내주세요
+
+      $("b").click(function () {
+        $("h2").text($(this).text());
+        var src = $(this).siblings("span").text();
+        $("img").attr("src", src);
+      });
+    </script>
+  </body>
+</html>
