@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 60px;
+        height: 60px;
+        border: 1px solid gray;
+        border-radius: 100px;
+        text-align: center;
+        line-height: 60px;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <h3></h3>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/rndColor.js"></script>
+    <script>
+      $("div").each(function (idx) {
+        $(this)
+          .css("background-color", randomColor())
+          .text(idx + 1);
+      });
+      $("div").hover(
+        function () {
+          var bg = $(this).css("background-color");
+          $("h3").text(bg).css("color", $(this).css("background-color"));
+        },
+        function () {
+          // 지우기
+          $("h3").empty();
+        }
+      );
+    </script>
+  </body>
+</html>

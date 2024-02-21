@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        transition: all 6s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../image/jquery_img/c1.png" alt="" />
+    <img src="../image/jquery_img/c2.png" alt="" />
+    <img src="../image/jquery_img/c3.png" alt="" />
+    <img src="../image/jquery_img/c4.png" alt="" />
+    <img src="../image/jquery_img/c5.png" alt="" />
+    <img src="../image/jquery_img/c6.png" alt="" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("img:eq(0)").hover(
+        function () {
+          $(this).css("transform", "rotate(360deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0)");
+        }
+      );
+      $("img:eq(1)").hover(
+        function () {
+          $(this).css("transform", "rotate(-45deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0)");
+        }
+      );
+      $("img:eq(2)").hover(
+        function () {
+          $(this).css("transform", "scale(2)");
+        },
+        function () {
+          $(this).css("transform", "scale(1)");
+        }
+      );
+      $("img:eq(3)").hover(
+        function () {
+          $(this).css("transform", "translate(100px,100px)");
+        },
+        function () {
+          $(this).css("transform", "translate(0,0)");
+        }
+      );
+      $("img:eq(4)").hover(
+        function () {
+          $(this).css("transform", "skew(90deg,90deg)");
+        },
+        function () {
+          $(this).css("transform", "skew(0,0)");
+        }
+      );
+      $("img:eq(5)").hover(
+        function () {
+          $(this).css("transform", "matrix(1,2,3,4,5,6)");
+        },
+        function () {
+          $(this).css("transform", "matrix(0)");
+        }
+      );
+    </script>
+  </body>
+</html>

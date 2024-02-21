@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #result {
+        width: 500px;
+        height: 300px;
+        border: 2px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <legend>폼태그 복습</legend>
+      <table class="table table-bordered" style="width: 500px">
+        <tr>
+          <th class="table-success">이름</th>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              id="myname"
+              style="width: 500px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="table-success">성별</th>
+          <td>
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="chgender"
+                value="남자"
+              />&nbsp;남자</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="chgender"
+                value="여자"
+              />&nbsp;여자</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <th class="table-success">생년월일</th>
+          <td>
+            <label
+              ><input
+                type="date"
+                class="form-control"
+                id="date"
+              />&nbsp;생년월일</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <th class="table-success">거주지</th>
+          <td>
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="hometown"
+                value="서울"
+                checked
+              />&nbsp;서울</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="hometown"
+                value="경기"
+              />&nbsp;경기</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="hometown"
+                value="부산"
+              />&nbsp;부산</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="hometown"
+                value="인천"
+              />&nbsp;인천</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="form-control"
+                name="hometown"
+                value="제주"
+              />&nbsp;제주</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <th class="table-success">취미</th>
+          <td>
+            <label for=""
+              ><input
+                type="checkbox"
+                class="form-control"
+                name="hobby"
+                value="게임"
+              />게임</label
+            >
+            <label for=""
+              ><input
+                type="checkbox"
+                class="form-control"
+                name="hobby"
+                value="여행"
+              />여행</label
+            >
+            <label for=""
+              ><input
+                type="checkbox"
+                class="form-control"
+                name="hobby"
+                value="코딩"
+              />코딩</label
+            >
+            <label for=""
+              ><input
+                type="checkbox"
+                class="form-control"
+                name="hobby"
+                value="넷플릭스"
+              />넷플릭스</label
+            >
+            <label for=""
+              ><input
+                type="checkbox"
+                class="form-control"
+                name="hobby"
+                value="공부"
+              />공부</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <th class="table-success">글꼴선택</th>
+          <td>
+            <select id="selfont">
+              <option value="">Pretendard Variable</option>
+              <option value="">Nanum Gothic</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <div id="result"></div>
+      <button
+        id="btn"
+        style="margin-top: 20px; padding: 10px; border-radius: 20px"
+        type="button"
+      >
+        결과출력
+      </button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $("#btn").click(function () {
+        var text = "";
+        // 이름
+        var name = $("#myname").val();
+        text += name + "<br>";
+        // 성별
+        var gender = $("input[name='chgender']:checked").val();
+        text += gender + "<br>";
+        // 생년월일
+        var day = $("#date").val();
+        text += day + "<br>";
+        // 거주지
+        var area = $("input[name='hometown']:checked").val();
+        text += area + "<br>";
+        // hobby
+        var hobby = $("input[name='hobby']:checked").val();
+        text += hobby + "<br>";
+        // 폰트
+        var font = $("#selfont option:checked").text();
+
+        // 출력
+        $("#result").html(text).css("font-family", font);
+      });
+    </script>
+  </body>
+</html>

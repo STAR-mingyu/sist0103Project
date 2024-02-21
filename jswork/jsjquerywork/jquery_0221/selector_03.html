@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>오늘 공부할 내용</p>
+    <ol>
+      <li>선택자</li>
+      <li>속성이라면</li>
+      <li>스타일</li>
+      <li>이벤트</li>
+    </ol>
+    <p>오늘 점심 메뉴</p>
+    <ol>
+      <li>순두부찌개</li>
+      <li>햄버거</li>
+      <li>계란라면</li>
+      <li>스파게티</li>
+    </ol>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+    //   $("ol li:first").css("background-color","red"); //전체에서 첫번째 li
+      $("ol li:first-child").css("background-color","red"); //각 ol항목의 첫번째 li
+
+    //   전체 항목에서 "라면"을 찾아서 글자크기를 2em
+    $("li:contains(라면)").css("font-size","20px");
+
+    // odd:홀수  even:짝수
+    $("li:odd").css("border","2px inset magenta")
+    </script>
+  </body>
+</html>
