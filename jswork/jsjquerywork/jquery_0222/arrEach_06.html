@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 100px;
+        cursor: pointer;
+      }
+      div.box {
+        border: 5px solid pink;
+        margin-top: 20px;
+        width: 300px;
+        height: 120px;
+        padding: 20px;
+        font-family: "Pretendard Variable";
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>배열반복시 사용하는 $.each문</h3>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var colors = ["red", "blue", "yellow", "black"];
+
+      $.each(colors, function (i, elt) {
+        //i:인덱스 elt:엘리먼트(인덱스에 해당하는 아이템값)
+        var s = "<h2 style='color: " + elt + "; width=200px;'>" + elt + "<h2>";
+
+        document.write(s);
+      });
+    </script>
+
+    <h3>배열복습_이미지</h3>
+    <script>
+      var images = ["1", "3", "5", "7", "11"];
+      $.each(images, function (idx, ele) {
+        var text = "<img src='../image/Food/" + ele + ".jpg'>";
+        document.write(text);
+      });
+    </script>
+
+    <h3>배열 _object형 선언</h3>
+    <div id="out"></div>
+    <script>
+      var info = [
+        { name: "이민규", hp: "010-1111-1111", addr: "서울시 서초구" },
+        { name: "박민규", hp: "010-2222-3333", addr: "서울시 강남구" },
+        { name: "서민규", hp: "010-4444-5555", addr: "서울시 종로구" },
+        { name: "홍민규", hp: "010-6666-7777", addr: "서울시 중랑구" },
+      ];
+
+      var s = "";
+      $.each(info, function (idx, ele) {
+        s +=
+          "<div class='box'>" +
+          ele.name +
+          "<br>" +
+          ele.hp +
+          "<br>" +
+          ele.addr +
+          "<br></div>";
+      });
+
+      $("#out").html(s);
+    </script>
+  </body>
+</html>

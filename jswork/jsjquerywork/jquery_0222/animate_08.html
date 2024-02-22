@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      * {
+        font-family: "Pretendard Variable";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../image/만화이미지/01.png" alt="" id="hana" />
+    <img src="../image/jquery_img/c4.png" alt="" id="img1" width="100" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+      $("#img1").animate(
+        { width: "200px", opacity: "0.5" },
+        3000,
+        "easeInElastic",
+        function () {
+          $(this).after("<h4>THE END!!</h4>");
+        }
+        // easeInOutBack
+        // easeInOutSine
+      );
+
+      $("#hana")
+        .animate({ left: "+=60px" }, 2000)
+        .animate({ borderWidth: "10p" }, 7000)
+        .animate({ width: "120px" }, 1000)
+        .animate({ height: "100px" }, 4000);
+    </script>
+  </body>
+</html>

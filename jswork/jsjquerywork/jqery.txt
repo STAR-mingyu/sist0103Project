@@ -5,3 +5,11 @@
 
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
 
+Pretendard Variable
+
+      * {
+        font-family: "Pretendard Variable";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }

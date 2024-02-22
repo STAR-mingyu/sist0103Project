@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      첫번째 div
+      <div class="hana">div 1</div>
+      <div>div 2</div>
+      <div>div 3</div>
+      <div>div 4</div>
+      <h3>h3Tag</h3>
+      <h5>h5Tag</h5>
+    </div>
+    <div class="two">
+      두번째
+      <div class="hana"></div>
+      <div>div 2</div>
+      <div>div 3</div>
+      <div>div 4</div>
+      <h3>h3Tag</h3>
+      <h5>h5Tag</h5>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("div.one div.hana").siblings().css("color", "red");
+      $(".one").click(function () {
+        $(".one,.two").children("div").hide();
+      });
+    </script>
+  </body>
+</html>

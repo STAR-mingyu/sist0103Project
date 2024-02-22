@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #result {
+        font-size: 2em;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>폼태그 복습</h2>
+    <div style="margin: 50px">
+      <h5>글꼴</h5>
+      <select name="font" id="font">
+        <option value="">Pretendard Variable</option>
+        <option value="">Poppins</option>
+      </select>
+      <h5>글자색</h5>
+      <input type="radio" name="fcol" value="#7b6833" />보라색
+      <input type="radio" name="fcol" value="#40e0d0" />하늘색
+      <input type="radio" name="fcol" value="#ee82ee" />핑크색
+      <input type="radio" name="fcol" value="#556b2f" />카키색
+
+      <h5>체크된 이미지 모두 출력</h5>
+      <input type="checkbox" name="minions" value="01" />미니언즈1
+      <input type="checkbox" name="minions" value="02" />미니언즈2
+      <input type="checkbox" name="minions" value="03" />미니언즈3
+      <input type="checkbox" name="minions" value="04" />미니언즈4
+    </div>
+    <button
+      type="button"
+      id="btn"
+      style="
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: antiquewhite;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+      "
+    >
+      버튼
+    </button>
+    <div id="result" style="margin: 50px">
+      오늘 예쁜눈 펑펑
+      <div class="myminions">..미니언즈들 출력</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $("button#btn").click(function () {
+        var text = "";
+        var font = $("select#font option:selected").text();
+
+        var color = $("input[name='fcol']:checked").val();
+        var myimg = "";
+        $("input[name='minions']:checked").each(function (i, ele) {
+          myimg += "<img src='../image/jquery_img/" + $(this).val() + ".png'>";
+        });
+
+        $("div.myminions").html(myimg);
+
+        $("#result").css({ "font-family": font, color: color }).html(imgeach);
+        //
+      });
+    </script>
+  </body>
+</html>

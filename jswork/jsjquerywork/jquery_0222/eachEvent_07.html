@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      * {
+        font-family: "Pretendard Variable";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .small {
+        border: 5px groove orange;
+        object-fit: cover;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50px;
+        transition: all 2s ease-in-out;
+      }
+
+      .small:hover {
+        padding: 0;
+        border: 0.1px groove firebrick;
+      }
+
+      .large {
+        width: 400px;
+        height: 500px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        border: 10px inset purple;
+        border-radius: 30px;
+        cursor: pointer;
+        object-fit: cover;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show"></div>
+    <div class="large_box">
+      <img src="" alt="" class="large" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var imginfo = [
+        { name: "../image/Food/1.jpg", width: "120", title: "샌드위치" },
+        { name: "../image/Food/2.jpg", width: "160", title: "꼬치" },
+        { name: "../image/Food/3.jpg", width: "130", title: "칼국수" },
+        { name: "../image/Food/4.jpg", width: "100", title: "찜닭" },
+      ];
+
+      var text = "";
+      $.each(imginfo, function (idx, ele) {
+        text +=
+          "<div><img src='" +
+          ele.name +
+          "' style='width:" +
+          ele.width +
+          "px;' title='" +
+          ele.title +
+          "' class='small'></div>";
+      });
+
+      $("#show").html(text);
+
+      var a = $(".large").attr("src", imginfo[0].name);
+      console.log(a);
+
+      $(".small").hover(
+        function () {
+          $(this).css("transform", "rotate(45deg)");
+        },
+        function () {
+          $(this).css("transform", "rotate(0)");
+        }
+      );
+
+      $(".small").click(function () {
+        $(".large").attr("src", $(this).attr("src"));
+      });
+    </script>
+  </body>
+</html>

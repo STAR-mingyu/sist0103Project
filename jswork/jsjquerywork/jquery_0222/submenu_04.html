@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="site">
+      <ul>
+        <li>
+          교육센터소개
+          <ul class="submenu">
+            <li>센터소개</li>
+            <li>센터소개</li>
+            <li>센터소개</li>
+          </ul>
+        </li>
+        <li>
+          교육센터소개
+          <ul class="submenu">
+            <li>센터소개</li>
+            <li>센터소개</li>
+            <li>센터소개</li>
+          </ul>
+        </li>
+        <li>
+          교육센터소개
+          <ul class="submenu">
+            <li>센터소개</li>
+            <li>센터소개</li>
+            <li>센터소개</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(".submenu").hide();
+      $(".site ul > li").click(function () {
+        $(this).children(".submenu").slideDown("1000");
+        $(this).siblings(".site ul li").children(".submenu").slideUp("1000");
+      });
+    </script>
+  </body>
+</html>

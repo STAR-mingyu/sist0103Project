@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .pink {
+        color: pink;
+      }
+      .green {
+        color: green;
+      }
+      .yellow {
+        color: rgb(202, 202, 56);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content pink">
+      <h3>작성자글 1번</h3>
+      <div class="answer">
+        <h5>1번글에 대한 댓글1</h5>
+        <h5>1번글에 대한 댓글2</h5>
+        <h5>1번글에 대한 댓글3</h5>
+      </div>
+    </div>
+
+    <div class="content green">
+      <h3>작성자글 2번</h3>
+      <div class="answer">
+        <h5>2번글에 대한 댓글1</h5>
+        <h5>2번글에 대한 댓글2</h5>
+        <h5>2번글에 대한 댓글3</h5>
+      </div>
+    </div>
+    <div class="content yellow">
+      <h3>작성자글 3번</h3>
+      <div class="answer">
+        <h5>3번글에 대한 댓글1</h5>
+        <h5>3번글에 대한 댓글2</h5>
+        <h5>3번글에 대한 댓글3</h5>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("div.answer").hide();
+
+      $(".content > h3").click(function () {
+        $(this).siblings("div.answer").show();
+        $(this).parents(".content").siblings().children("div.answer").hide();
+      });
+    </script>
+  </body>
+</html>
