@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+      }
+      * {
+        font-family: "Pretendard Variable";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 24px;
+        font-weight: 500;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      button.btna {
+        background-color: rgb(57, 165, 165);
+        color: rgb(153, 108, 49);
+      }
+      button.btnb {
+        background-color: rgb(52, 196, 107);
+        color: rgb(160, 192, 74);
+      }
+
+      div {
+        padding: 20px;
+        width: 200px;
+        height: 400px;
+        font-size: 20px;
+        top: 100px;
+        border: 1px solid gray;
+      }
+
+      .container {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        border: none;
+      }
+
+      #movie_result {
+        position: absolute;
+        left: 50%;
+        top: 600px;
+        transform: translateX(-50%);
+        font-size: 2em;
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;
+        overflow: hidden;
+        overflow-y: scroll;
+        width: 80%;
+        border-radius: 100%;
+      }
+      #three h4 {
+        color: rgb(161, 103, 26);
+        line-height: 40px;
+      }
+      #three h4:hover {
+        background-color: antiquewhite;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="one"></div>
+      <div id="two"></div>
+      <div id="three"></div>
+      <div id="four"></div>
+    </div>
+
+    <div id="movie_result"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var b1 = "<button type='button' id='btn1' class='btnb'>영화예매</button>";
+      $("#one").append(b1);
+      $("#btn1").click(function () {
+        var b2 =
+          "<button type='button' id='btn2' class='btna'>극장선택</button>";
+        b2 +=
+          "&nbsp;&nbsp;&nbsp;<button type='button' id='btn3' class='btnb'>영화선택</button>";
+        $("#two").html(b2);
+      });
+
+      $(document).on("click", "#btn2", function () {
+        var s = "";
+        s += "<h4 class='theater'>CGV 강남점</h4>";
+        s += "<h4 class='theater'>CGV 강북점</h4>";
+        s += "<h4 class='theater'>CGV 홍대점</h4>";
+        s += "<h4 class='theater'>CGV 합정점</h4>";
+        s += "<h4 class='theater'>CGV 신촌점</h4>";
+        $("#three").html(s);
+      });
+      $(document).on("click", "#btn3", function () {
+        var s = "";
+        s += "<h4 class='movie'>듄파트2</h4>";
+        s += "<h4 class='movie'>파묘</h4>";
+        s += "<h4 class='movie'>웡카</h4>";
+        s += "<h4 class='movie'>시민덕회</h4>";
+        s += "<h4 class='movie'>귀멸의 칼날</h4>";
+        $("#three").html(s);
+      });
+
+      var theater = "";
+      var movie = "";
+      var time_val = "";
+      var inwon = "";
+
+      $(document).on("click", "#three h4", function () {
+        var movie_selet = $(this).attr("class");
+        // alert(movie_selet);
+        if (movie_selet == "theater") {
+          theater += "극장명 : " + $(this).text();
+        } else {
+          var times = ["09:00", "12:30", "14:45", "18:20", "21:30"];
+          var t = "";
+          $.each(times, function (idx, ele) {
+            t +=
+              "<input type='radio' name='time' value='" +
+              times[idx] +
+              "'>" +
+              times[idx] +
+              "<br>";
+          });
+
+          movie += "영화제목 : " + $(this).text() + "<br>";
+
+          t += "<input type='number' min='1' max='5' id='inwon'>";
+          $("#four").html(t);
+          $(document).on("click", "input[name='time']", function () {
+            time_val = $(this).val();
+            console.log(time_val);
+            $("#movie_result").html(
+              theater + movie + "<br>" + time_val + "<br>"
+            );
+          });
+
+          $(document).on("change", "input#inwon", function () {
+            inwon = $(this).val();
+            $("#movie_result").html(
+              theater +
+                "<br>" +
+                movie +
+                "<br>시간 : " +
+                time_val +
+                "<br>인원 : " +
+                inwon
+            );
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

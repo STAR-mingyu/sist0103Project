@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="add">add</div>
+    <!-- 기본의 이벤트 방식 : 원래있던 버튼은 이벤트가 되지만 이벤트로 발생한 버튼에는 이벤트가 안 먹힌다
+    on메서드(동적 메서드):처음부터 존재하는 요소나 미래에 이벤트로 생기게 될 요소에 모두 이벤트 가능
+    -->
+    <ul>
+      <li>JAVA</li>
+      <li>JSP</li>
+      <li>ORACLE</li>
+      <li>SPRING</li>
+    </ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $("#add").on("click", function () {
+        $("body").append("<button id='add'>+</button>");
+      });
+
+      $("ul")
+        .children("li")
+        .click(function () {
+          $(this).remove();
+        });
+
+      $("ul").append("<li>JQERY</li>"); //이벤트로 발생한 리스트이므로 삭제안됨
+      $("ul li").on("click", function () {
+        $(this).remove();
+      });
+    </script>
+  </body>
+</html>
