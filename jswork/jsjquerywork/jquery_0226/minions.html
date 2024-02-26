@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+        background-image: url("../image/jquery_img/bg.png");
+        background-size: cover;
+      }
+      * {
+        font-family: "Pretendard Variable";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+      }
+      li {
+        list-style: none;
+      }
+
+      .game_contol {
+        width: 300px;
+        height: 450px;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .game_contol .gun {
+        width: 300px;
+        height: 250px;
+        background-image: url("../image/jquery_img/gun.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        text-indent: -99px;
+      }
+
+      .game_contol .gun:active {
+        background-position: bottom;
+      }
+
+      .sunban_area {
+        width: 800px;
+        margin: 500px 100px 100px 100px;
+      }
+
+      .sunban_area .sunban {
+        height: 150px;
+        margin-bottom: 50px;
+        width: 800px;
+        background-image: url("../image/jquery_img/sunban.png");
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      #game_mgs {
+        position: absolute;
+        right: 0;
+        top: 100px;
+        border: 10px solid pink;
+        width: 500px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border-radius: 100px;
+      }
+      li {
+        width: 128px;
+        height: 128px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game_contol">
+      <div class="gun">총</div>
+      <ul class="money">
+        <li><img src="../image/jquery_img/money.png" alt="" /></li>
+        <li><img src="../image/jquery_img/money.png" alt="" /></li>
+        <li><img src="../image/jquery_img/money.png" alt="" /></li>
+      </ul>
+    </div>
+    <div class="sunban_area">
+      <ul class="sunban">
+        <li><img src="../image/jquery_img/01.png" alt="" /></li>
+        <li><img src="../image/jquery_img/02.png" alt="" /></li>
+        <li><img src="../image/jquery_img/03.png" alt="" /></li>
+        <li><img src="../image/jquery_img/04.png" alt="" /></li>
+        <li><img src="../image/jquery_img/05.png" alt="" /></li>
+        <li><img src="../image/jquery_img/06.png" alt="" /></li>
+      </ul>
+      <ul class="sunban">
+        <li><img src="../image/jquery_img/07.png" alt="" /></li>
+        <li><img src="../image/jquery_img/08.png" alt="" /></li>
+        <li><img src="../image/jquery_img/09.png" alt="" /></li>
+        <li><img src="../image/jquery_img/10.png" alt="" /></li>
+        <li><img src="../image/jquery_img/11.png" alt="" /></li>
+        <li><img src="../image/jquery_img/12.png" alt="" /></li>
+      </ul>
+    </div>
+
+    <div id="game_mgs"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      var gun_sound = new Audio("../sound/992ECD485D2A1EED05.mp3");
+      var hiddenImageCount = 0;
+      var random = "";
+
+      $(".game_contol .gun").click(function () {
+        gun_sound.play();
+        random = parseInt(Math.random() * 12);
+
+        if ($(".sunban_area .sunban li").eq(random).find("img").is(":hidden")) {
+          $("#game_mgs").text(random + "번은 이미 처리되었습니다");
+        } else {
+          $(".sunban_area .sunban li").eq(random).find("img").hide();
+          hiddenImageCount++;
+
+          $("#game_mgs").text(random + "번을 쐈습니다");
+
+          if (hiddenImageCount == 12) {
+            $("#game_mgs").html("you win");
+          }
+
+          $("ul.money li").click(function () {
+            $(this).hide();
+            $(".sunban_area .sunban li img").show();
+            $("#game_mgs").empty();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
