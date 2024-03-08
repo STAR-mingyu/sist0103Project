@@ -1,0 +1,19 @@
+[
+	{
+		"name": "kim",
+		"city": "seoul",
+		"hp": "010-1111-2222",
+		"datailaddr": "길동"
+	},
+	{
+		"name": "lee",
+		"city": "incheon",
+		"hp": "010-2222-3333"
+	},
+	{
+		"name": "park",
+		"city": "daegu",
+		"hp": "010-7777-8888",
+		"datailaddr": "만천동"
+	}
+]

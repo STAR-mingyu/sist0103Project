@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style type="text/css">
+ul {
+	display: flex;
+}
+
+ul li {
+	list-style: none;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border: 1px solid tomato;
+	margin: 5px;
+	cursor: pointer;
+	font-family: "Dongle";
+	font-size: 30px;
+	transition: all .3s ease-in-out;
+}
+
+ul li.active {
+	background-color: tomato;
+	border: 1px solid transparent;
+}
+
+.show {
+	width: 300px;
+	height: 300px;
+	transition: all .3s ease-in-out;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.show.active {
+	background-image: url("../img/Food/1.jpg");
+}
+</style>
+</head>
+<body>
+	<ul>
+		<li class="btn n_1">Home</li>
+		<li class="btn n_2">Food</li>
+		<li class="btn n_3">Info</li>
+	</ul>
+
+	<div class="show" style="margin-top: 50px;"></div>
+
+	<script type="text/javascript">
+		//첫번째 Home누르면 메인이미지 아무거나 하나 나오기
+		//2번째 Food누르면 json파일 가져오기(div or table)
+		//3번째 Info버튼 누르면 xml파일 가져오기(div or table)
+		var result = "";
+		$(".btn.n_1").click(function() {
+			$(".show").addClass("active");
+		});
+
+		$(".btn").hover(function() {
+			$(this).addClass("active");
+		}, function() {
+			$(this).removeClass("active");
+		});
+
+		$(".btn.n_2").click(function() {
+
+			$.ajax({
+				type : "get",
+				dataType : "json",
+				url : "foodtojson.jsp",
+				success : function(data) {
+					$.each(data, function(idx, ele) {
+						result += "<div>" + ele.foodname + "</div>"
+					});
+					$(".show").html(result);
+				}
+			})
+
+		});
+	</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import info.model.InfoDto;
+import mysql.db.DbConnect;
 
 public class QuizDao {
 	DbConnect db = new DbConnect();
@@ -15,7 +16,7 @@ public class QuizDao {
 	public Vector<QuizDto> alldb() {
 		Vector<QuizDto> list = new Vector<QuizDto>();
 
-		Connection conn = db.dbConnection();
+		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -40,7 +41,7 @@ public class QuizDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbclose(rs, pstmt, conn);
+			db.dbClose(rs, pstmt, conn);
 		}
 		return list;
 
