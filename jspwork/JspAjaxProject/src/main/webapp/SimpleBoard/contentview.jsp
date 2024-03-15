@@ -15,7 +15,8 @@
 	rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin
 	href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <title>Insert title here</title>
 <style type="text/css">
 * {
@@ -29,6 +30,28 @@ span.day {
 	color: #ccc;
 	font-size: 12px;
 }
+
+span.aday {
+	float: right;
+	font-size: 0.8em;
+	color: #bbb;
+}
+
+div.alist {
+	margin-left: 20px;
+}
+
+.comment.update {
+	display: none;
+}
+
+.comment.update.active {
+	display: flex;
+}
+
+.comment.insert.active {
+	display: none;
+}
 </style>
 </head>
 <body>
@@ -38,11 +61,14 @@ span.day {
 
 	//dto
 	SimpleBoardDto dto = dao.detail(num);
+
 	//조회수 1증가
 	dao.count(num);
 	//날짜
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	%>
+
+	<input type="hidden" id="num" value="<%=num%>">
 
 	<div style="margin: 50px 100px; width: 500px">
 		<table class="table table-bordered">
@@ -59,6 +85,32 @@ span.day {
 				<td><%=dto.getContent()%></td>
 
 			</tr>
+
+			<!-- 댓글 -->
+			<tr>
+				<td><b class="acount">댓글<span>0</span></b>
+					<div class="alist">
+						<span>댓글목록</span>
+					</div>
+					<div class="aform input-group comment insert">
+						<input type="text" id="nickname" class="form-control"
+							style="width: 80px;" placeholder="닉네임"> <input
+							type="text" id="content" class="form-control"
+							style="width: 300px; margin-left: 10px" placeholder="댓글 메시지">
+						<button type="button" id="btnsend" class="btn btn-info btn-sm"
+							style="margin-left: 10px">저장</button>
+					</div>
+					<div class="aform input-group comment update">
+						<input type="text" id="nickname" class="form-control"
+							style="width: 80px;" value=""> <input
+							type="text" id="content" class="form-control"
+							style="width: 300px; margin-left: 10px"
+							value="">
+						<button type="button" id="btnsend"
+							class="btn btn-warning btn-sm up_btnsend"
+							style="margin-left: 10px">수정</button>
+					</div></td>
+			</tr>
 			<tr>
 				<td>
 					<button type="button" class="btn btn-outline-info"
@@ -68,11 +120,121 @@ span.day {
 					<button type="button" class="btn btn-outline-primary"
 						onclick="location.href='updatepassform.jsp?num=<%=dto.getNum()%>'">수정</button>
 					<button type="button" class="btn btn-outline-warning"
-						onclick="location.href='deletepassform.jsp?num=<%=dto.getNum()%>'">삭제</button>
+						onclick="location.href='deletePass.jsp?num=<%=dto.getNum()%>'">삭제</button>
 				</td>
 			</tr>
 		</table>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script type="text/javascript">
+		//ajax insert
+
+		list();
+
+		//alert(num);
+
+		$("#btnsend").click(function() {
+			var num = $("#num").val();
+			var nickname = $("#nickname").val().trim();
+			var content = $("#content").val().trim();
+
+			if (nickname == "") {
+				alert("닉네임을 입력후 저장해주세요");
+				return false;
+			}
+			if (content == "") {
+				alert("댓글 내용을 입력후 저장해주세요");
+				return false;
+			}
+			$.ajax({
+				type : "get",
+				dataType : "html",
+				url : "../simpleboardanswer/insertAnswer.jsp",
+				data : {
+					"num" : num,
+					"nickname" : nickname,
+					"content" : content
+				},
+				success : function() {
+					list();
+					$("#nickname").val("");
+					$("#content").val("");
+				}
+			})
+		})
+
+		function list() {
+			console.log("list num=" + $("#num").val());
+			//	alert($("#num").val());
+
+			$
+					.ajax({
+						type : "get",
+						url : "../simpleboardanswer/listAnswer.jsp",
+						dataType : "json",
+						data : {
+							"num" : $("#num").val()
+						},
+						success : function(res) {
+							// 댓글 개수 출력
+							$("b.acount>span").text(res.length);
+							var s = "";
+							$
+									.each(
+											res,
+											function(idx, item) {
+												s += "<div>" + item.nick + ": "
+														+ item.content;
+												s += "<span class='aday'>"
+														+ item.writeday
+														+ "</span>";
+												s += "<i class='bi bi-pencil-square amod update_btn'></i>";
+												s += "<i class='bi bi-trash2 adel delete_btn' name='"+ item.idx+"'></i>";
+												
+											});
+							$("div.alist").html(s);
+						}
+					});
+		};
+
+		$(document).on("click", ".delete_btn", function() {
+			var idx = $(this).attr("name");
+			$.ajax({
+				type : "get",
+				dataType : "html",
+				url : "../simpleboardanswer/deleteAnswer.jsp",
+				data : {
+					"idx" : idx
+				},
+				success : function(idx, ele) {
+					list();
+				}
+			})
+		});
+
+		$(document).on("click", ".update_btn", function() {
+			$(".comment.update").addClass("active");
+			$(".comment.insert").addClass("active");
+
+		})
+
+		$(".up_btnsend").click(function() {
+			var nickname = $("#nickname").val();
+			var content = $("#content").val();
+			$.ajax({
+				type : "get",
+				dataType : "html",
+				url : "../simpleboardanswer/updateAnswer.jsp",
+				data : {
+					"nickname" : nickname,
+					"content" : content
+				},
+				success : function(idx, ele) {
+					alert("qq")
+					list();
+				}
+			})
+		})
+	</script>
 </body>
 </html>

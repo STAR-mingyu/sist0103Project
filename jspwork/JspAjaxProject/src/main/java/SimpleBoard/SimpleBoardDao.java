@@ -211,4 +211,79 @@ public class SimpleBoardDao {
 		return list;
 	}
 
+	// 삭제 비밀번호
+	public boolean password(String num, String pass) {
+		boolean flag = false;
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select count(*) from Simpleboard where num=? and pass=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.setString(2, pass);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				if (rs.getInt(1) == 1) {
+					flag = true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return flag;
+
+	}
+
+	// 삭제
+	public SimpleBoardDto delete(String num) {
+		SimpleBoardDto dto = new SimpleBoardDto();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+
+		String sql = "DELETE FROM Simpleboard WHERE num = ?;";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+
+		return dto;
+	}
+
+	// 수정
+	public void update(SimpleBoardDto dto) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+
+		String sql = "update Simpleboard set writer=?,subject=?,content=? where num=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, dto.getWriter());
+			pstmt.setString(2, dto.getSubject());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getNum());
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+
+	}
 }

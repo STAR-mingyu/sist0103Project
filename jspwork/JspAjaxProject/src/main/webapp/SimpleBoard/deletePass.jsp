@@ -17,7 +17,7 @@
 String num = request.getParameter("num");
 %>
 <body style="margin: 200px; width: 300px">
-	<form action="updatepassaction.jsp" method="post">
+	<form action="deletepassaction.jsp" method="post">
 		<div class="d-inline-flex">
 			<h4 style="width: 100px">비밀번호</h4>
 			<input type="password" class="form-control" required="required"
@@ -26,7 +26,7 @@ String num = request.getParameter("num");
 		</div>
 		<br>
 		<button type="submit" class="btn btn-danger"
-			style="margin-left: 100px">수정</button>
+			style="margin-left: 100px">삭제</button>
 	</form>
 </body>
 </html>
