@@ -40,18 +40,6 @@ span.aday {
 div.alist {
 	margin-left: 20px;
 }
-
-.comment.update {
-	display: none;
-}
-
-.comment.update.active {
-	display: flex;
-}
-
-.comment.insert.active {
-	display: none;
-}
 </style>
 </head>
 <body>
@@ -92,24 +80,27 @@ div.alist {
 					<div class="alist">
 						<span>댓글목록</span>
 					</div>
-					<div class="aform input-group comment insert">
-						<input type="text" id="nickname" class="form-control"
-							style="width: 80px;" placeholder="닉네임"> <input
-							type="text" id="content" class="form-control"
-							style="width: 300px; margin-left: 10px" placeholder="댓글 메시지">
-						<button type="button" id="btnsend" class="btn btn-info btn-sm"
-							style="margin-left: 10px">저장</button>
-					</div>
-					<div class="aform input-group comment update">
-						<input type="text" id="nickname" class="form-control"
-							style="width: 80px;" value=""> <input
-							type="text" id="content" class="form-control"
-							style="width: 300px; margin-left: 10px"
-							value="">
-						<button type="button" id="btnsend"
-							class="btn btn-warning btn-sm up_btnsend"
-							style="margin-left: 10px">수정</button>
+					<div class="input-group_box">
+						<div class="aform input-group">
+							<input type="text" id="nickname" class="form-control"
+								style="width: 80px;" placeholder="닉네임"> <input
+								type="text" id="content" class="form-control"
+								style="width: 300px; margin-left: 10px" placeholder="댓글 메시지">
+							<button type="button" id="btnsend" class="btn btn-info btn-sm"
+								style="margin-left: 10px">저장</button>
+						</div>
+						<div class="updateform input-group">
+							<input type="hidden" id="idx"> <input type="text"
+								id="unickname" class="form-control" style="width: 80px;"
+								placeholder="닉네임"> <input type="text" id="ucontent"
+								class="form-control" style="width: 300px; margin-left: 10px"
+								placeholder="댓글 메시지">
+							<button type="button" id="btnaUsend"
+								class="btn btn-warning btn-sm" style="margin-left: 10px">수정</button>
+						</div>
 					</div></td>
+
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -161,7 +152,60 @@ div.alist {
 					$("#content").val("");
 				}
 			})
+
 		})
+
+		//댓글 글자 누르면 댓글창 나오게
+		$("b.acount").click(function() {
+			$(".input-group_box").toggle();
+
+		});
+
+		$("#btnaUsend").click(function() {
+			var idx = $("#idx").val();
+			var nick = $("#unickname").val();
+			var content = $("#ucontent").val();
+		
+			$.ajax({
+				type : "get",
+				url : "../simpleboardanswer/updateAnswer.jsp",
+				dataType : "html",
+				data : {
+					"idx" : idx,
+					"nickname" : nick,
+					"content" : content
+				},
+				success : function() {
+					list();
+					$(".updateform").hide();
+					$(".aform").show();
+				}
+			})
+		})
+
+		//있던 수정창 안보이게
+		$(".updateform").hide();
+
+		//댓글리스트의 수정아이콘 누르면 수정댓글창에 해당idx의 내용 띄우기
+		$(document).on("click", ".update_btn", function() {
+			$(".aform").hide();
+			$(".updateform").show();
+			var idx = $(this).attr("idx");
+			$("#idx").val(idx);
+			$.ajax({
+				type : "get",
+				dataType : "json",
+				url : "../simpleboardanswer/oneDataAnswer.jsp",
+				data : {
+					"idx" : idx
+				},
+				success : function(res) {
+					$("#idx").val(res.idx);
+					$("#unickname").val(res.nick);
+					$("#ucontent").val(res.content);
+				}
+			})
+		});
 
 		function list() {
 			console.log("list num=" + $("#num").val());
@@ -188,9 +232,9 @@ div.alist {
 												s += "<span class='aday'>"
 														+ item.writeday
 														+ "</span>";
-												s += "<i class='bi bi-pencil-square amod update_btn'></i>";
+												s += "<i class='bi bi-pencil-square amod update_btn' idx='" + item.idx + "'></i>";
 												s += "<i class='bi bi-trash2 adel delete_btn' name='"+ item.idx+"'></i>";
-												
+
 											});
 							$("div.alist").html(s);
 						}
@@ -211,30 +255,6 @@ div.alist {
 				}
 			})
 		});
-
-		$(document).on("click", ".update_btn", function() {
-			$(".comment.update").addClass("active");
-			$(".comment.insert").addClass("active");
-
-		})
-
-		$(".up_btnsend").click(function() {
-			var nickname = $("#nickname").val();
-			var content = $("#content").val();
-			$.ajax({
-				type : "get",
-				dataType : "html",
-				url : "../simpleboardanswer/updateAnswer.jsp",
-				data : {
-					"nickname" : nickname,
-					"content" : content
-				},
-				success : function(idx, ele) {
-					alert("qq")
-					list();
-				}
-			})
-		})
 	</script>
 </body>
 </html>

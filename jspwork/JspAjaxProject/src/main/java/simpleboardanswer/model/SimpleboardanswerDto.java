@@ -13,6 +13,8 @@ public class SimpleboardanswerDto {
 		return idx;
 	}
 
+
+
 	public void setIdx(String idx) {
 		this.idx = idx;
 	}

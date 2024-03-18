@@ -87,6 +87,35 @@ public class SimpleboardanswerDao {
 		return dto;
 	}
 
+	// 수정시 띄울 테이터
+	public SimpleboardanswerDto getAnserData(String idx) {
+		SimpleboardanswerDto dto = new SimpleboardanswerDto();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from simpleboardanswer where idx=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setContent(rs.getString("content"));
+				dto.setIdx(rs.getString("idx"));
+				dto.setNickname(rs.getString("nickname"));
+				dto.setNum(rs.getString("num"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
+
 	// 업데이트
 	public void update(SimpleboardanswerDto dto) {
 		Connection conn = db.getConnection();
@@ -94,9 +123,9 @@ public class SimpleboardanswerDao {
 		String sql = "UPDATE simpleboardanswer SET nickname = ?, content = ? WHERE idx = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "nickname");
-			pstmt.setString(2, "content");
-			pstmt.setString(3, "idx");
+			pstmt.setString(1, dto.getNickname());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getIdx());
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

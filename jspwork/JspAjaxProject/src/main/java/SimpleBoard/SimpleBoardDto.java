@@ -9,7 +9,18 @@ public class SimpleBoardDto {
 	private String content;
 	private String pass;
 	private int readcount;
+	private int answercount;
 	private Timestamp writeday;
+
+	public int getAnswercount() {
+		return answercount;
+	}
+
+	public void setAnswercount(int answercount) {
+		this.answercount = answercount;
+	}
+
+
 
 	public String getNum() {
 		return num;
