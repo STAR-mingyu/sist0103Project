@@ -21,7 +21,7 @@ System.out.println(m_num);
 %>
 </head>
 <body>
-	<form action="deletePassAction.jsp" method="post">
+	<form action="deletePassAction.jsp" method="post" id="form">
 		<input type="hidden" name="m_num" value="<%=m_num%>">
 		<div style="display: flex;">
 			<input type="text" required="required" placeholder="비밀번호 입력"

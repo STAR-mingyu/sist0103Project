@@ -131,7 +131,6 @@ public class MemgaipDao {
 	public void delete(String m_num) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
-		
 
 		String sql = "DELETE FROM memgaip WHERE m_num = ?";
 
@@ -145,6 +144,59 @@ public class MemgaipDao {
 		} finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+
+	// num값 얻기
+	public MemgaipDto getData(String m_num) {
+		MemgaipDto dto = new MemgaipDto();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from memgaip where m_num = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_num);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				dto.setM_hp(rs.getString("m_hp"));
+				dto.setM_id(rs.getString("m_id"));
+				dto.setM_name(rs.getString("m_name"));
+				dto.setM_num(rs.getString("m_num"));
+				dto.setM_pass(rs.getString("m_pass"));
+				dto.setM_photo(rs.getString("m_photo"));
+				dto.setGaipday(rs.getTimestamp("gaipday"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
+
+	// update
+	public void update(MemgaipDto dto) {
+	    Connection conn = db.getConnection();
+	    PreparedStatement pstmt = null;
+
+	    String sql = "UPDATE memgaip SET m_name=?, m_pass=?, m_hp=?, m_photo=? WHERE m_num=?";
+	    try {
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, dto.getM_name());
+	        pstmt.setString(2, dto.getM_pass());
+	        pstmt.setString(3, dto.getM_hp());
+	        pstmt.setString(4, dto.getM_photo());
+	        pstmt.setString(5, dto.getM_num());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        db.dbClose(pstmt, conn);
+	    }
 	}
 
 }

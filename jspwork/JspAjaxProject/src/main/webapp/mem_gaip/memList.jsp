@@ -72,11 +72,11 @@ th, th, td {
 					}
 					%>
 				</td>
-				<td><%=dto.getM_photo()%></td>
+				<td><%=dto.getM_hp()%></td>
 				<td><%=sdf.format(dto.getGaipday())%></td>
 				<td>
 					<button type="button" class="btn btn-success btn-sm"
-						onclick="location.href=''">수정</button>
+						onclick="updateForm(<%=dto.getM_num()%>)">수정</button>
 					<button type="button" class="btn btn-danger btn-sm"
 						onclick="deleteForm(<%=dto.getM_num()%>)">삭제</button>
 				</td>
@@ -88,10 +88,14 @@ th, th, td {
 	</div>
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 	<script>
-		//deletePassForm.jsp
 		function deleteForm(m_num) {
 			var url = "deletePassForm.jsp?m_num=" + m_num;
-			var options = "width=400,height=400,right=50%,top=50%";
+			var options = "width=400,height=400,left=50%,top=50%";
+			window.open(url, "delete", options);
+		}
+		function updateForm(m_num) {
+			var url = "updateForm.jsp?m_num=" + m_num;
+			var options = "width=800,height=800,left=50%,top=50%";
 			window.open(url, "delete", options);
 		}
 	</script>

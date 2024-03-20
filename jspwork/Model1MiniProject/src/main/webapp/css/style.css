@@ -1,0 +1,164 @@
+@charset "EUC-KR";
+
+a {
+	text-decoration: none;
+	color: #111111;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	word-break: keep-all;
+	font-family: 'Pretendard Variable'
+}
+
+html, body {
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 100px;
+	-webkit-box-shadow: inset 0 0 6px rgb(40 38 38/ 30%);
+}
+
+li {
+	list-style: none;
+}
+
+#index_wrap {
+	padding: 400px 0 120px;
+}
+
+/* index.jsp */
+div.layout {
+	border: 0px solid gray;
+	position: absolute;
+}
+
+div.title {
+	width: 100%;
+	height: 100px;
+	line-height: 80px;
+	font-size: 30pt;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background-color: #fff;
+}
+
+div.menu {
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	font-size: 20px;
+	text-align: center;
+	top: 90px;
+}
+
+div.info {
+	width: 250px;
+	height: 300px;
+	line-height: 10px;
+	font-size: 15pt;
+	left: 50px;
+	top: 300px;
+	border: 5px groove purple;
+	border-radius: 30px;
+	padding: 20px 20px;
+}
+
+/* main.jsp */
+div.main {
+	width: 1200px;
+	height: 700px;
+	font-size: 15pt;
+	left: 400px;
+	top: 200px;
+}
+
+#main {
+	width: 1200px;
+	padding: 120px 0;
+}
+
+#main img.banner {
+	width: 100%;
+}
+
+#main h3.title {
+	margin-top: 80px;
+}
+
+#main .img_box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#main .img_box img {
+	width: 50%;
+}
+/* gaipSuccess.jsp */
+.signUp {
+	font-weight: 400;
+	padding: 120px 0;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signUp .sign_title p {
+	font-weight: 700;
+	font-size: 20px
+}
+
+.signUp .title p span {
+	font-weight: 400;
+	font-size: 16px
+}
+
+.signUp .img {
+	margin-top: 40px;
+	width: 600px;
+	height: 400px;
+}
+
+.signUp .img  img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.signUp .btn {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.signUp .btn  a {
+	width: 120px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	justify-content: center;
+	color: #fff;
+}
+
+.signUp .btn  a:first-child {
+	margin-right: 40px;
+	background-color: #ccdb50;
+}
+
+.signUp .btn  a:last-child {
+	background-color: #71d3e3;
+}
