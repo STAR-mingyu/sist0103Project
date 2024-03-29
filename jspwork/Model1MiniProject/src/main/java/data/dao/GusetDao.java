@@ -1,0 +1,190 @@
+package data.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+
+import data.dto.GusetDto;
+import mysql.db.DbConnect;
+
+public class GusetDao {
+	DbConnect db = new DbConnect();
+
+	// insert
+	public void insertGuest(GusetDto dto) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+
+		String sql = "insert into memberguest (myid,contetn,photoname,writeday) values (?,?,?,now())";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, dto.getMyid());
+			pstmt.setString(2, dto.getContetn());
+			pstmt.setString(3, dto.getPhotoname());
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+
+	// 페이징
+	// 전체개수
+	public int getTotalCount() {
+		int n = 0;
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select count(*) from memberguest";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return n;
+
+	}
+
+	// 페이지에서 필요한 만큼 리턴
+	public List<GusetDto> getList(int start, int perpage) {
+		List<GusetDto> list = new Vector<GusetDto>();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from memberguest order by num desc limit ?,?;";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, perpage);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				GusetDto dto = new GusetDto();
+				dto.setNum(rs.getString("num"));
+				dto.setMyid(rs.getString("myid"));
+				dto.setContetn(rs.getString("contetn"));
+				dto.setPhotoname(rs.getString("photoname"));
+				dto.setChu(rs.getInt("chu"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return list;
+	}
+
+	// 수정
+	// num에 해당하는 dto반환
+	public GusetDto getData(String num) {
+		GusetDto dto = new GusetDto();
+
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from memberguest where num=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setNum(rs.getString("num"));
+				dto.setMyid(rs.getString("myid"));
+				dto.setContetn(rs.getString("contetn"));
+				dto.setPhotoname(rs.getString("photoname"));
+				dto.setChu(rs.getInt("chu"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return dto;
+	}
+
+	// 수정
+	public void updateGuest(GusetDto dto) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+
+		String sql = "update memberguest set contetn=?,photoname=? where num=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, dto.getContetn());
+			pstmt.setString(2, dto.getPhotoname());
+			pstmt.setString(3, dto.getNum());
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+
+	// 삭제
+	public void deleteGuest(String num) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+
+		String sql = "delete from memberguest where num=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+
+	}
+
+	// 추천클릭시 추천수 증가시키기
+	public void updateChu(String num) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = "update memberguest set chu=chu+1 where num=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+}

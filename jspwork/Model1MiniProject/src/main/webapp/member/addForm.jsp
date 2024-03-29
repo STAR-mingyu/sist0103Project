@@ -8,13 +8,12 @@
 </style>
 </head>
 <body>
-	<div style="margin: 100px; width: 500px">
+	<div style="margin: 100px;">
+		<div class="common_title">회원가입</div>
 		<form action="member/addAction.jsp" method="post"
 			onsubmit="return check(this)">
 			<table class="table table-bordered" style="width: 500px">
-				<caption align="top">
-					<b>회원가입</b>
-				</caption>
+				<caption align="top"></caption>
 				<tr>
 					<th width="100" class="table-success">아이디</th>
 					<td>

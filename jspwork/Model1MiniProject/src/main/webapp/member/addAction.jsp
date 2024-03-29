@@ -15,8 +15,8 @@
 </head>
 <body>
 	<%
-	String name = request.getParameter("name");
 	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
 	String email = request.getParameter("email") + "@" + request.getParameter("email2");
 	%>
 
@@ -28,10 +28,7 @@
 	dao.insert(dto);
 
 	//일단 리스트...가입성공페이지로 바꿀예정
-	response.sendRedirect("../index.jsp?main=member/gaipSuccess.jsp?name=" + name);
+	response.sendRedirect("../index.jsp?main=member/gaipSuccess.jsp?id=" + dto.getId());
 	%>
-	<form action="">
-		<input type="hidden" name="name" value="<%=name%>">
-	</form>
 </body>
 </html>

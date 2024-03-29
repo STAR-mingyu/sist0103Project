@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=root%>/menu/css/menu.css">
 </head>
+<%
+String myid = (String)session.getAttribute("myid");
+String loginok = (String)session.getAttribute("loginok");
+%>
 <body>
 
 	<!--	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -25,37 +29,38 @@
 			<div class="inner relative">
 				<nav id="navigation">
 					<ul id="main-menu">
-						<li class="current-menu-item"><a href="#">로그인</a>
+						<li class="current-menu-item"><a href="#">회원</a>
 							<ul class="sub-menu">
-								<li><a href="index.jsp?main=member/addForm.jsp"><i
-										class="icon-wrench"></i>회원가입</a></li>
+								<%
+								if (loginok == null) {
+								%>
+								<li><a href="index.jsp?main=member/addForm.jsp">회원가입</a></li>
+								<%
+								}
+								%>
+
+								<%
+								if (loginok != null && myid.equals("admin")) {
+								%>
+								<li><a href="index.jsp?main=member/memberList.jsp">회원목록</a></li>
+								<%
+								}
+								%>
+								<%
+								if (loginok != null) {
+								%>
+								<li><a href="index.jsp?main=smartBoard/boardList.jsp">마이페이지</a></li>
+								<%
+								}
+								%>
+
+
 							</ul></li>
-						<li class="current-menu-item"><a href="#">Home</a></li>
-						<li class="parent"><a href="#">Features</a>
+						<li class="current-menu-item"><a href="#">게시판</a>
 							<ul class="sub-menu">
-								<li><a href="#"><i class="icon-wrench"></i> Elements</a></li>
-								<li><a href="#"><i class="icon-credit-card"></i>
-										Pricing Tables</a></li>
-								<li><a href="#"><i class="icon-gift"></i> Icons</a></li>
-								<li><a class="parent" href="#"><i class="icon-file-alt"></i>
-										Pages</a>
-									<ul class="sub-menu">
-										<li><a href="#">Full Width</a></li>
-										<li><a href="#">Left Sidebar</a></li>
-										<li><a href="#">Right Sidebar</a></li>
-										<li><a href="#">Double Sidebar</a></li>
-									</ul></li>
+								<li><a href="index.jsp?main=memberguest/guestList.jsp">회원방명록</a></li>
+								<li><a href="index.jsp?main=smartBoard/boardList.jsp">스마트게시판</a></li>
 							</ul></li>
-						<li><a href="#">Portfolio</a></li>
-						<li class="parent"><a href="#">Blog</a>
-							<ul class="sub-menu">
-								<li><a href="#">Large Image</a></li>
-								<li><a href="#">Large Image</a></li>
-								<li><a href="#">Large Image</a></li>
-								<li><a href="#">Large Image</a></li>
-								<li><a href="#">Large Image</a></li>
-							</ul></li>
-						<li><a href="#">Contact</a></li>
 					</ul>
 				</nav>
 

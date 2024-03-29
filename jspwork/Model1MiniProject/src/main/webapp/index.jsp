@@ -7,7 +7,7 @@
 String root = request.getContextPath();
 String mainPage = "layout/main.jsp";
 
-//urp을 읽어서 main값을 읽어서 메인페이지에 출력한다
+//url을 읽어서 main값을 읽어서 메인페이지에 출력한다
 if (request.getParameter("main") != null) {
 	mainPage = request.getParameter("main");
 }

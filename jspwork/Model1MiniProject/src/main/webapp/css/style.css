@@ -28,6 +28,13 @@ html, body {
 	-webkit-box-shadow: inset 0 0 6px rgb(40 38 38/ 30%);
 }
 
+.common_title {
+	text-align: center;
+	font-weight: 700;
+	font-size: 36px;
+	color: #000;
+}
+
 li {
 	list-style: none;
 }
@@ -55,6 +62,24 @@ div.title {
 	background-color: #fff;
 }
 
+div.title .log_box {
+	position: absolute;
+	right: 60px;
+	top: 0;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	height: 100px;
+}
+
+div.title .log_box a {
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+	color: #000;
+	margin-left: 20px;
+}
+
 div.menu {
 	width: 100%;
 	height: 80px;
@@ -71,9 +96,23 @@ div.info {
 	font-size: 15pt;
 	left: 50px;
 	top: 300px;
-	border: 5px groove purple;
+	border: 1px solid #ccc;
 	border-radius: 30px;
-	padding: 20px 20px;
+	padding: 20px;
+}
+
+div.info .img {
+	margin-top: 20px;
+}
+
+div.info  img {
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+}
+
+div.info i {
+	margin-right: 20px;
 }
 
 /* main.jsp */
@@ -83,6 +122,10 @@ div.main {
 	font-size: 15pt;
 	left: 400px;
 	top: 200px;
+}
+
+div.main table {
+	margin-top: 40px;
 }
 
 #main {
@@ -161,4 +204,234 @@ div.main {
 
 .signUp .btn  a:last-child {
 	background-color: #71d3e3;
+}
+
+/* memberList.jsp */
+.member_list {
+	display: flex;
+	justify-content: center;
+	padding: 120px 0;
+}
+
+.member_list table th {
+	font-size: 18px;
+	text-align: center;
+}
+
+.member_list table  td {
+	font-size: 16px;
+	text-align: center;
+}
+
+/*myPage.jsp*/
+.modal {
+	z-index: 99999 !important;
+}
+
+.my_page {
+	padding: 120px 0;
+}
+
+.my_page .mainimg {
+	text-align: center;
+}
+
+.my_page .mainimg img {
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+}
+
+.my_page td {
+	vertical-align: middle;
+	font-size: 16px;
+}
+
+.guestlist .total {
+	font-size: 14px;
+	color: #504848;
+}
+
+.guestlist .total span {
+	font-weight: 700;
+	color: #000;
+	font-size: 16px;
+}
+
+.guestlist  .block {
+	border: 1px solid #ddd;
+	border-radius: 40px;
+	margin-top: 40px;
+	padding: 20px;
+	position: relative;
+}
+
+.guestlist  .block .top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.guestlist  .block .top div {
+	display: flex;;
+	align-items: center;
+}
+
+.guestlist  .block .top .no {
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.guestlist  .block .top .id {
+	font-weight: 700;
+}
+
+.guestlist  .block .top .day {
+	font-size: 14px;
+	color: #ccc;
+}
+
+.guestlist  .block .body {
+	margin-top: 40px;
+	font-size: 16px;
+}
+
+.guestlist .block .guest_btn {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.guestlist .block .guest_btn i {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.pagination {
+	padding-bottom: 80px;
+}
+
+textarea {
+	resize: none;
+}
+
+.guestlist  .answer {
+	font-size: 14px;
+	margin-left: 20px;
+}
+
+.guestlist  .answer span {
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.guestlist  .answer span.chu {
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.guestlist .comment {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.guestlist .comment_list table {
+	border: 1px solid #ddd;
+	padding: 20px;
+}
+
+.guestlist .comment_list table td.user {
+	text-align: center;
+}
+
+.guestlist .comment_list table i {
+	cursor: pointer;
+}
+
+.smart_detail {
+	margin-top: 80px;
+	border: 1px solid #ddd;
+	padding: 20px;
+	border-radius: 30px;
+}
+
+.smart_detail .head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.smart_detail .head>div {
+	display: flex;
+	align-items: center;
+}
+
+.smart_detail .head .no {
+	color: #212529;
+	font-size: 14px;
+	margin-right: 4px;
+}
+
+.smart_detail .head .no  span {
+	font-weight: 700;
+}
+
+.smart_detail .head .writer {
+	font-size: 16px;
+}
+
+.smart_detail .head .day {
+	color: #ccc;
+	font-size: 14px;
+	margin-right: 10px;
+	font-weight: 600;
+}
+
+.smart_detail .head .count {
+	color: #ccc;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.smart_detail .subject {
+	margin-top: 18px;
+	font-weight: 700;
+}
+
+.smart_detail .content {
+	margin-top: 20px;
+	font-size: 16px;
+}
+
+.smart_detail .content  p {
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+
+.smart_btn {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.smart_btn div {
+	margin-right: 20px;
+	width: 140px;
+	height: 50px;
+	border-radius: 30px;
+}
+
+.smart_btn div a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	color: #fff;
+}
+
+.smart_btn div:last-child {
+	margin-right: 0;
 }

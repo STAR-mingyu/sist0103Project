@@ -106,7 +106,10 @@ ol, ul {
 
 /* HEADER > MENU > DROPDOWN */
 #main-menu li {
+	justify-content: center;
 	position: relative;
+	width: 100px;
+	text-align: center;
 }
 
 #main-menu li:first-child {
@@ -119,8 +122,8 @@ ul.sub-menu { /* level 2 */
 	top: 100%;
 	transform: translateX(-50%);
 	position: absolute;
-	width: 150px;
 	z-index: 9999;
+	padding: 0;
 }
 
 ul.sub-menu ul.sub-menu { /* level 3+ */
