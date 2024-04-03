@@ -1,3 +1,4 @@
+<%@page import="data.dao.SmartAnswerDao"%>
 <%@page import="data.dto.SmartDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.SmartDao"%>
@@ -86,6 +87,13 @@ if (list.size() == 0 && currentPage != 1) {
 }
 
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+SmartAnswerDao adao = new SmartAnswerDao();
+for (SmartDto dto : list) {
+//댓글변수에 댓글 총 갯수 넣기
+int acount = adao.smartAnswerList(dto.getNum()).size();
+dto.setAnswerCount(acount);
+}
 %>
 <body>
 	<div style="margin: 50px 100px;">
@@ -119,18 +127,26 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			%>
 			<tr align="center">
 
-				<td><input type="checkbox" value="<%=dto.getNum()%>"
-					class="del">&nbsp;&nbsp; <%=plus_no++%></td>
+				<td style="vertical-align: middle;"><input type="checkbox"
+					value="<%=dto.getNum()%>" class="del">&nbsp;&nbsp; <%=plus_no++%></td>
 				<td><a
 					href="index.jsp?main=smartBoard/contentView.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>">
 						<span
 						style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 250px; display: block;">
-							<%=dto.getSubject()%></span>
+							<%=dto.getSubject()%>
+					</span> <%
+ if (dto.getAnswerCount() > 0) {
+ %> <span
+						style="font-weight: 700; font-size: 14px;">[<%=dto.getAnswerCount()%>]
+					</span> <%
+ }
+ %>
 				</a></td>
 				<td
-					onclick="location.href=../index.jsp?main=smartBoard/contentView.jsp"><%=dto.getWriter()%></td>
-				<td style="color: #ccc; font-size: 14px;"><%=sdf.format(dto.getWriteday())%></td>
-				<td style="color: #ccc; font-size: 14px;"><%=dto.getReadcount()%></td>
+					onclick="location.href=../index.jsp?main=smartBoard/contentView.jsp"
+					style="vertical-align: middle;"><%=dto.getWriter()%></td>
+				<td style="color: #ccc; font-size: 14px; vertical-align: middle;"><%=sdf.format(dto.getWriteday())%></td>
+				<td style="color: #ccc; font-size: 14px; vertical-align: middle;"><%=dto.getReadcount()%></td>
 			</tr>
 			<%
 			}

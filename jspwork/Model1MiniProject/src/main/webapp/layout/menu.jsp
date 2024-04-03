@@ -29,7 +29,8 @@ String loginok = (String)session.getAttribute("loginok");
 			<div class="inner relative">
 				<nav id="navigation">
 					<ul id="main-menu">
-						<li class="current-menu-item"><a href="#">회원</a>
+						<li class="current-menu-item"><a
+							href="index.jsp?main=member/memberList.jsp">회원</a>
 							<ul class="sub-menu">
 								<%
 								if (loginok == null) {
@@ -56,10 +57,29 @@ String loginok = (String)session.getAttribute("loginok");
 
 
 							</ul></li>
-						<li class="current-menu-item"><a href="#">게시판</a>
+						<li class="current-menu-item"><a
+							href="index.jsp?main=memberguest/guestList.jsp">게시판</a>
 							<ul class="sub-menu">
 								<li><a href="index.jsp?main=memberguest/guestList.jsp">회원방명록</a></li>
 								<li><a href="index.jsp?main=smartBoard/boardList.jsp">스마트게시판</a></li>
+							</ul></li>
+						<li class="current-menu-item" style="margin-left: 60px;"><a
+							href="index.jsp?main=shop/addForm.jsp"
+							style="white-space: nowrap;">Maison shop</a>
+							<ul class="sub-menu">
+								<%
+								if (loginok != null && myid.equals("admin")) {
+								%>
+								<li><a href="index.jsp?main=shop/addForm.jsp">상품등록</a></li>
+								<%
+								} else {
+								%>
+								<li><a href="index.jsp?main=shop/shopList.jsp">상품목록</a></li>
+								<%
+								}
+								%>
+
+
 							</ul></li>
 					</ul>
 				</nav>
